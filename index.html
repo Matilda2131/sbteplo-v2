@@ -339,7 +339,7 @@
         .chat-send-btn:hover { transform: scale(1.05); }
         .chat-send-btn svg { width: 20px; height: 20px; color: #010313; }
 
-        .typing-indicator { display: flex; gap: 4px; padding: 14px 18px; align-self: flex-start; }
+        .typing-indicator { display: flex; align-items: center; gap: 4px; padding: 14px 18px; background: rgba(15,23,42,0.8); border-radius: 12px; border: 1px solid rgba(251,191,36,0.2); margin: 8px 0; }
         .typing-dot { width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; animation: typingBounce 1.4s infinite; }
         .typing-dot:nth-child(2) { animation-delay: 0.2s; }
         .typing-dot:nth-child(3) { animation-delay: 0.4s; }
@@ -2464,7 +2464,7 @@ function showTyping() {
     const typing = document.createElement('div');
     typing.className = 'typing-indicator';
     typing.id = 'typingIndicator';
-    typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div><span style="margin-left:8px;color:#fbbf24;font-size:14px;">Василий печатает...</span>';
     document.getElementById('chatMessages').appendChild(typing);
     scrollChat();
 }
