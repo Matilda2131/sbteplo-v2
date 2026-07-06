@@ -1359,19 +1359,19 @@
 
         <div class="grid lg:grid-cols-5 gap-10">
             <div class="lg:col-span-3 glass-card rounded-3xl p-8 md:p-10 reveal-left">
-                <form id="leadFormCalc" class="space-y-6">
+                <form id="leadFormCalc" action="https://formspree.io/f/xrewrewb" method="POST" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="form-group">
-                            <input type="text" id="formNameCalc" placeholder=" " class="premium-input" required>
+                            <input type="text" id="formNameCalc" name="name" placeholder=" " class="premium-input" required>
                             <label>Ваше имя</label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="formPhoneCalc" placeholder=" " class="premium-input" required>
+                            <input type="tel" id="formPhoneCalc" name="phone" placeholder=" " class="premium-input" required>
                             <label>Телефон</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="formCommentCalc" rows="4" class="premium-input resize-none" placeholder="Опишите ваш объект или прикрепите ссылку на проект..."></textarea>
+                        <textarea id="formCommentCalc" name="message" rows="4" class="premium-input resize-none" placeholder="Опишите ваш объект или прикрепите ссылку на проект..."></textarea>
                     </div>
                     <input type="hidden" name="_subject" value="Новая заявка с сайта">
                     <input type="hidden" name="form" value="Калькулятор">
