@@ -2406,6 +2406,19 @@ function calculateAll() {
         gtag('event', 'calculator_complete', { total: grandTotal, area: activeArea });
     }
 
+    // Отправка в Telegram-бот
+    try {
+        const botToken = '8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM';
+        const chatId = '425052747';
+        const msg = '📊 Расчёт на сайте!\n\nПлощадь: ' + activeArea + ' м²\nСтоимость: ' + formatRubricCalc(grandTotal) + '\n\nЦены:\n' + 
+            'ТП: ' + formatRubricCalc(floorResult.total) + '\n' +
+            'Радиаторы: ' + formatRubricCalc(radiatorResult.total) + '\n' +
+            'Котельная: ' + formatRubricCalc(boilerResult.total) + '\n' +
+            'Водоснабжение: ' + formatRubricCalc(waterResult.total) + '\n' +
+            'Канализация: ' + formatRubricCalc(sewageResult.total);
+        fetch('https://api.telegram.org/bot' + botToken + '/sendMessage?chat_id=' + chatId + '&text=' + encodeURIComponent(msg));
+    } catch(e) {}
+
     switchResultTab(0);
 }
 
