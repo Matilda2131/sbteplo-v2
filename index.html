@@ -1914,7 +1914,7 @@ function calculateWaterCalc() {
         document.getElementById('waterFilterAutoStation').checked ||
         document.getElementById('waterFilterReducer').checked;
 
-    let basePipeLength = Math.round(totalPoints * 6.5);
+    let basePipeLength = totalPoints * 10;
     let actualPipeLength = hasRecirculation ? Math.round(basePipeLength * 1.3) : basePipeLength;
     let manifoldCount = 2;
     let pumpCost = 0;
@@ -2396,6 +2396,16 @@ function calculateAll() {
     document.getElementById('grandTotalDisplaySmall').textContent = formatRubricCalc(grandTotal);
     document.getElementById('pricePerM2Display').textContent = activeArea > 0 ? Math.round(grandTotal / activeArea).toLocaleString('ru-RU') : '0';
 
+    // Отслеживание в Яндекс.Метрике
+    if (typeof ym !== 'undefined') {
+        ym(110351183, 'reachGoal', 'CALC_COMPLETE', { total: grandTotal, area: activeArea });
+    }
+    
+    // Отслеживание в Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'calculator_complete', { total: grandTotal, area: activeArea });
+    }
+
     switchResultTab(0);
 }
 
@@ -2686,6 +2696,21 @@ setTimeout(() => {
 document.addEventListener('DOMContentLoaded', () => {
     renderFloorsCalc();
     buildSewageTable();
+    
+    // Отслеживание просмотра калькулятора
+    const calcSection = document.getElementById('calculator');
+    if (calcSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (typeof ym !== 'undefined') ym(110351183, 'reachGoal', 'CALC_VIEW');
+                    if (typeof gtag !== 'undefined') gtag('event', 'calculator_view');
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(calcSection);
+    }
 });
 </script>
 </body>
