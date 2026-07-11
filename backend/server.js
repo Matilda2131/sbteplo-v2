@@ -10,12 +10,8 @@ const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
 const OPENROUTER_KEY = process.env.OPENROUTER_KEY;
 const PORT = process.env.PORT || 3000;
 
-const SYSTEM_PROMPT = `Ты — Василий, инженер-консультант компании "Отопление от Саши Белого" (СПб).
-Отвечай на русском, дружелюбно, с эмодзи. Кратко (2-5 предложений).
-Цены: ТП 2500-4500₽/м², радиаторы 12000-18000₽/шт, котельная от 145000₽.
-Материалы: Rehau, Baxi, TECH, De Dietrich. Гарантия 5 лет.
-Контакты: +7 (911) 924-54-25.
-В конце ответа предложи действие: "Звони!", "Считай в калькуляторе!", "Давай замерим!"`;
+// Короткий промпт — экономия токенов
+const SYSTEM_PROMPT = 'Ты Василий, инженер "Отопление от Саши Белого" СПб. На ты, с эмодзи. Кратко 2-3 предложения. ТП от 7000₽/м², радиаторы от 15000₽/шт, котельная от 200000₽. Rehau, Baxi. Гарантия 5 лет. Тел +7(911)924-54-25.';
 
 async function callDeepSeek(messages) {
     if (!DEEPSEEK_KEY) return null;
@@ -23,14 +19,14 @@ async function callDeepSeek(messages) {
         const response = await fetch('https://api.deepseek.com/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${DEEPSEEK_KEY}`,
+                'Authorization': 'Bearer ' + DEEPSEEK_KEY,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 model: 'deepseek-chat',
-                messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages.slice(-6)],
-                max_tokens: 300,
-                temperature: 0.8
+                messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages.slice(-3)],
+                max_tokens: 120,
+                temperature: 0.7
             })
         });
         if (response.ok) {
@@ -47,16 +43,16 @@ async function callOpenRouter(messages) {
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${OPENROUTER_KEY}`,
+                'Authorization': 'Bearer ' + OPENROUTER_KEY,
                 'Content-Type': 'application/json',
                 'HTTP-Referer': 'https://sbteplo.ru',
-                'X-Title': 'Sasha Heating Bot'
+                'X-Title': 'Sasha Heating'
             },
             body: JSON.stringify({
                 model: 'openai/gpt-oss-20b:free',
-                messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages.slice(-6)],
-                max_tokens: 200,
-                temperature: 0.8
+                messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages.slice(-3)],
+                max_tokens: 100,
+                temperature: 0.7
             })
         });
         if (response.ok) {
@@ -67,19 +63,15 @@ async function callOpenRouter(messages) {
     return null;
 }
 
-// Chat proxy — tries DeepSeek first, then OpenRouter
+// Chat proxy
 app.post('/api/chat', async (req, res) => {
     try {
         const { messages } = req.body;
-        if (!messages || !messages.length) {
-            return res.status(400).json({ error: 'No messages provided' });
-        }
+        if (!messages || !messages.length) return res.status(400).json({ error: 'No messages' });
 
         let reply = await callDeepSeek(messages);
         if (!reply) reply = await callOpenRouter(messages);
-        if (!reply) {
-            return res.json({ choices: [{ message: { content: 'Привет! Пока не могу ответить через AI. Попробуй позвонить: +7 (911) 924-54-25 🔥' } }] });
-        }
+        if (!reply) return res.json({ choices: [{ message: { content: 'Попробуй позвонить: +7(911)924-54-25 🔥' } }] });
 
         res.json({ choices: [{ message: { content: reply } }] });
     } catch (error) {
@@ -88,33 +80,23 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-// Lead form submission
+// Lead form
 app.post('/api/lead', express.urlencoded({ extended: true }), async (req, res) => {
     const { name, phone, comment, form } = req.body;
-    console.log('New lead:', { name, phone, comment, form });
-
     const TG_TOKEN = process.env.TG_BOT_TOKEN;
     const TG_CHAT = process.env.TG_CHAT_ID || '425052747';
-    if (TG_TOKEN && TG_CHAT) {
+    if (TG_TOKEN) {
         try {
-            const text = `📩 Новая заявка!\n\nИмя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment || 'нет'}\nФорма: ${form || ' основная'}`;
-            await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+            await fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: TG_CHAT, text })
+                body: JSON.stringify({ chat_id: TG_CHAT, text: '📩 ' + (name||'') + ' ' + (phone||'') + '\n' + (comment||'') })
             });
-        } catch (e) { console.error('Telegram send error:', e); }
+        } catch (e) {}
     }
     res.json({ ok: true });
 });
 
-// Health check
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', time: new Date().toISOString(), deepseek: !!DEEPSEEK_KEY, openrouter: !!OPENROUTER_KEY });
-});
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`DeepSeek: ${DEEPSEEK_KEY ? 'configured' : 'missing'}`);
-    console.log(`OpenRouter: ${OPENROUTER_KEY ? 'configured' : 'missing'}`);
-});
+app.listen(PORT, () => console.log('Server on port ' + PORT));
