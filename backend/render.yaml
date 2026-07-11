@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: sasha-heating-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: DEEPSEEK_KEY
+        value: sk-e572243c595540e5a9331a348e4d326c
+      - key: OPENROUTER_KEY
+        value: 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
+      - key: TG_BOT_TOKEN
+        value: 8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM
+      - key: TG_CHAT_ID
+        value: "425052747"
+
+  - type: worker
+    name: mimo-bot
+    env: python
+    buildCommand: pip install httpx
+    startCommand: python remote_bot.py
+    envVars:
+      - key: TG_BOT_TOKEN
+        value: 8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM
+      - key: OPENROUTER_KEY
+        value: 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
+      - key: DEEPSEEK_KEY
+        value: sk-e572243c595540e5a9331a348e4d326c
+      - key: AI_MODEL
+        value: openai/gpt-oss-20b:free
