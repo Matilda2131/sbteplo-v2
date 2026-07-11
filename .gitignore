@@ -1,0 +1,22 @@
+# Secrets
+*.json
+!package.json
+!package-lock.json
+!render.yaml
+google-seo-key.json
+key.txt bot tg.txt
+.env
+.env.*
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Mimocode
+.mimocode/
+
+# Logs
+*.log
