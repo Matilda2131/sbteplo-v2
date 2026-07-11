@@ -124,11 +124,12 @@
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
-        body { background: #010313; color: #e2e8f0; font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+        body { background: #010313; color: #e2e8f0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        @media (min-width: 769px) { body { cursor: none; } }
 
         /* Кастомный курсор */
-        .cursor-dot { width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: transform 0.1s; mix-blend-mode: difference; display: block !important; }
-        .cursor-ring { width: 40px; height: 40px; border: 2px solid rgba(251,191,36,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99998; transition: all 0.15s ease-out; display: block !important; }
+        .cursor-dot { width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: transform 0.1s; mix-blend-mode: difference; }
+        .cursor-ring { width: 40px; height: 40px; border: 2px solid rgba(251,191,36,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99998; transition: all 0.15s ease-out; }
         .cursor-ring.hover { transform: scale(1.8); border-color: #fbbf24; background: rgba(251,191,36,0.1); }
 
         /* Прелоадер */
@@ -185,12 +186,12 @@
         .premium-select:focus { border-color: #fbbf24; box-shadow: 0 0 0 3px rgba(251,191,36,0.15); }
 
         /* Кнопки */
-        .btn-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #010313; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; border: none; cursor: none; font-size: 1rem; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
+        .btn-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #010313; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; border: none; font-size: 1rem; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
         .btn-gold::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #f59e0b, #d97706); opacity: 0; transition: opacity 0.4s; }
         .btn-gold:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(251,191,36,0.3); }
         .btn-gold:hover::before { opacity: 1; }
         .btn-gold span { position: relative; z-index: 1; }
-        .btn-outline { background: transparent; color: #e2e8f0; font-weight: 600; padding: 1rem 2rem; border-radius: 12px; border: 2px solid #334155; cursor: none; font-size: 1rem; transition: all 0.4s; }
+        .btn-outline { background: transparent; color: #e2e8f0; font-weight: 600; padding: 1rem 2rem; border-radius: 12px; border: 2px solid #334155; font-size: 1rem; transition: all 0.4s; }
         .btn-outline:hover { border-color: #fbbf24; color: #fbbf24; transform: translateY(-3px); }
         
         /* Эффекты для hero заголовка */
@@ -204,7 +205,7 @@
         @keyframes nameUnderline { 0%, 100% { width: 100%; opacity: 1; } 50% { width: 80%; opacity: 0.7; } }
 
         /* Портфолио */
-        .portfolio-item { position: relative; overflow: hidden; border-radius: 16px; cursor: none; }
+        .portfolio-item { position: relative; overflow: hidden; border-radius: 16px; }
         .portfolio-item img { transition: transform 0.8s cubic-bezier(0.23,1,0.32,1); }
         .portfolio-item:hover img { transform: scale(1.1); }
         .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(1,3,19,0.95), transparent); opacity: 0; transition: opacity 0.5s; display: flex; align-items: flex-end; padding: 2rem; }
@@ -245,7 +246,7 @@
         .form-group input:not(:placeholder-shown) + label { top: -0.5rem; left: 1rem; font-size: 0.75rem; color: #fbbf24; background: #010313; padding: 0 0.5rem; }
 
         /* Вкладки калькулятора */
-        .calc-tab { padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; transition: all 0.3s; cursor: none; border: 1px solid transparent; }
+        .calc-tab { padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; transition: all 0.3s; border: 1px solid transparent; }
         .calc-tab.active { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #010313; }
         .calc-tab:not(.active) { background: rgba(15,23,42,0.6); color: #94a3b8; border-color: #334155; }
         .calc-tab:not(.active):hover { border-color: rgba(251,191,36,0.3); color: #e2e8f0; }
@@ -253,7 +254,7 @@
         /* Аккордеон результатов */
         .result-folder { border: 1px solid #334155; border-radius: 12px; overflow: hidden; transition: all 0.4s; background: rgba(15,23,42,0.4); }
         .result-folder[open] { border-color: rgba(251,191,36,0.3); box-shadow: 0 0 30px rgba(251,191,36,0.05); }
-        .result-folder summary { padding: 1rem 1.25rem; cursor: none; display: flex; align-items: center; justify-content: space-between; list-style: none; transition: background 0.3s; }
+        .result-folder summary { padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; list-style: none; transition: background 0.3s; }
         .result-folder summary::-webkit-details-marker { display: none; }
         .result-folder summary:hover { background: rgba(251,191,36,0.05); }
         .result-folder .folder-body { padding: 1rem 1.25rem; border-top: 1px solid #334155; background: rgba(1,3,19,0.5); }
@@ -269,9 +270,9 @@
         .tooltip:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
 
         @media (max-width: 768px) {
-            .cursor-dot, .cursor-ring { display: none; }
-            body { cursor: auto; }
-            .btn-gold, .btn-outline, .calc-tab, .result-folder summary, .btn-print { cursor: pointer; }
+            .cursor-dot, .cursor-ring { display: none !important; }
+            body { cursor: auto !important; }
+            .btn-gold, .btn-outline, .calc-tab, .result-folder summary, .btn-print, .chat-fab, .chat-send-btn, .chat-quick-btn, .call-fab, .portfolio-item { cursor: pointer; }
             
             /* Мобильные улучшения */
             .hero-title { font-size: 2rem !important; }
@@ -301,7 +302,7 @@
         #articleModal h2 { color: #fbbf24; }
         #articleModal p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
         #articleModal strong { color: #e2e8f0; }
-        .btn-print { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; border: none; cursor: none; font-size: 1rem; transition: all 0.4s; }
+        .btn-print { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; border: none; font-size: 1rem; transition: all 0.4s; }
         .btn-print:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(34,197,94,0.3); }
         @media print {
             body { background: white !important; color: #1a1a1a !important; cursor: auto !important; }
@@ -323,14 +324,14 @@
         /* ============================== */
         /* ЧАТ-АССИСТЕНТ "САША БЕЛЫЙ"     */
         /* ============================== */
-        .chat-fab { position: fixed; bottom: 24px; right: 24px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #fbbf24, #f59e0b); box-shadow: 0 8px 32px rgba(251,191,36,0.4); cursor: none; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); animation: chatPulse 2s infinite; }
+        .chat-fab { position: fixed; bottom: 24px; right: 24px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #fbbf24, #f59e0b); box-shadow: 0 8px 32px rgba(251,191,36,0.4); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); animation: chatPulse 2s infinite; }
         .chat-fab:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(251,191,36,0.5); }
         .chat-fab.active { animation: none; }
         .chat-fab svg { width: 32px; height: 32px; color: #010313; transition: transform 0.3s; }
         .chat-fab.active svg { transform: rotate(90deg); }
         
         /* Кнопка звонка */
-        .call-fab { position: fixed; bottom: 24px; left: 24px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 8px 32px rgba(34,197,94,0.4); cursor: none; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); animation: callPulse 2s infinite; }
+        .call-fab { position: fixed; bottom: 24px; left: 24px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 8px 32px rgba(34,197,94,0.4); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); animation: callPulse 2s infinite; }
         .call-fab:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(34,197,94,0.5); }
         .call-fab svg { width: 32px; height: 32px; color: white; }
         @keyframes callPulse { 0%, 100% { box-shadow: 0 8px 32px rgba(34,197,94,0.4); } 50% { box-shadow: 0 8px 32px rgba(34,197,94,0.6), 0 0 0 15px rgba(34,197,94,0.1); } }
