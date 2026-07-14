@@ -52,7 +52,7 @@ def handle(cid, text):
             send(cid, "💰 По отоплению:\n🔥 Тёплый пол: от 2 500 ₽/м²\n🔥 Радиаторы: от 10 000 ₽/шт\n🔥 Котельная: от 150 000 ₽\n\nСколько м² в доме?")
             return
         if text == "/contacts" or text == "/контакты":
-            send(cid, "📞 +7 (911) 924-54-25\n🌐 sbteplo.ru\n⏰ Пн-Вс 8:00-22:00\n\nВыезд на замер — бесплатно!")
+            send(cid, "📞 +7 (911) 924-54-25\n🌐 sbteplo.ru\n⏰ Пн-Вс 8:00-22:00\n\nВыезд на замер — 10 000 ₽ (входит в смету)")
             return
         history.append({"role": "user", "content": text})
         reply = ai(history)
