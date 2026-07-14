@@ -1,24 +1,13 @@
 services:
   - type: web
-    name: sasha-heating-api
-    env: node
-    buildCommand: npm install
-    startCommand: node server.js
+    name: mimo-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python notify_server.py
     envVars:
-      - key: DEEPSEEK_KEY
-        value: sk-e572243c595540e5a9331a348e4d326c
       - key: TG_BOT_TOKEN
         value: 8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM
       - key: TG_CHAT_ID
-        value: "425052747"
-
-  - type: worker
-    name: vasiliy-bot
-    env: python
-    buildCommand: pip install httpx
-    startCommand: python remote_bot.py
-    envVars:
-      - key: TG_BOT_TOKEN
-        value: 8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM
+        value: 425052747
       - key: DEEPSEEK_KEY
         value: sk-e572243c595540e5a9331a348e4d326c

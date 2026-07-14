@@ -2434,16 +2434,19 @@ function calculateAll() {
 
     // Отправка в Telegram через бэкенд
     try {
-        const msg = '📊 Расчёт на сайте!\n\nПлощадь: ' + activeArea + ' м²\nСтоимость: ' + formatRubricCalc(grandTotal) + '\n\nЦены:\n' + 
-            'ТП: ' + formatRubricCalc(floorResult.total) + '\n' +
-            'Радиаторы: ' + formatRubricCalc(radiatorResult.total) + '\n' +
-            'Котельная: ' + formatRubricCalc(boilerResult.total) + '\n' +
-            'Водоснабжение: ' + formatRubricCalc(waterResult.total) + '\n' +
-            'Канализация: ' + formatRubricCalc(sewageResult.total);
-        fetch(BACKEND_URL + '/api/lead', {
+        const calcData = {
+            area: activeArea,
+            total: grandTotal,
+            floor: floorResult.total,
+            radiator: radiatorResult.total,
+            boiler: boilerResult.total,
+            water: waterResult.total,
+            sewage: sewageResult.total
+        };
+        fetch(BACKEND_URL + '/api/calc', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: 'Калькулятор', phone: '-', comment: msg, form: 'calculator' })
+            body: JSON.stringify(calcData)
         });
     } catch(e) {}
 
@@ -2475,6 +2478,19 @@ function scrollToContact() {
 // ==================== ФОРМА ====================
 document.getElementById('leadFormCalc').addEventListener('submit', function(e) {
     e.preventDefault();
+    const formData = new FormData(this);
+    const name = formData.get('name') || '';
+    const phone = formData.get('phone') || '';
+    
+    // Send to backend for Telegram notification
+    try {
+        fetch(BACKEND_URL + '/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, phone: phone, comment: 'Заявка с сайта', form: 'contact' })
+        });
+    } catch(e) {}
+    
     this.classList.add('hidden');
     document.getElementById('formSuccessCalc').classList.remove('hidden');
     setTimeout(() => {
