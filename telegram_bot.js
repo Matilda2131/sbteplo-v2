@@ -2,7 +2,7 @@ const https = require('https');
 
 const TG_TOKEN = process.env.TG_BOT_TOKEN || '';
 const OR_KEY = process.env.OPENROUTER_KEY || '';
-const OR_MODEL = 'openai/gpt-oss-20b:free';
+const OR_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b:free';
 
 let lastUpdateId = 0;
 const chatHistory = {};

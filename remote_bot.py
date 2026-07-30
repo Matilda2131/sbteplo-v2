@@ -34,7 +34,7 @@ def ai(msgs):
         try:
             r = httpx.post("https://openrouter.ai/api/v1/chat/completions",
                 headers={"Authorization": "Bearer " + OPENROUTER_KEY, "Content-Type": "application/json"},
-                json={"model": "openai/gpt-oss-20b:free", "messages": sys + msgs[-3:], "max_tokens": 80, "temperature": 0.7},
+                json={"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "messages": sys + msgs[-3:], "max_tokens": 80, "temperature": 0.7},
                 timeout=20)
             if r.status_code == 200: return r.json()["choices"][0]["message"]["content"]
         except: pass

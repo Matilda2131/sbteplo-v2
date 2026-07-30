@@ -2505,7 +2505,7 @@ let chatOpen = false;
 let userMessages = [];
 let chatHistory = [];
 // Backend proxy URL (Render) — чат идёт через сервер, ключ не в браузере
-const BACKEND_URL = 'https://mimo-bot.onrender.com';
+const BACKEND_URL = 'https://sbteplo-backend.onrender.com';
 
 const botResponses = {
     greeting: [
@@ -2736,6 +2736,95 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(calcSection);
     }
 });
+</script>
+
+<!-- FAQ Section -->
+<section id="faq" style="max-width:900px;margin:80px auto;padding:0 24px;">
+    <h2 style="text-align:center;font-size:32px;margin-bottom:40px;">Часто задаваемые вопросы</h2>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Сколько стоит монтаж отопления?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Тёплый пол от 2 500 ₽/м², радиаторы от 10 000 ₽/шт, котельная под ключ от 150 000 ₽. Точная стоимость зависит от площади дома, этажности и типа топлива. Рассчитайте онлайн на нашем калькуляторе или позвоните: +7 (911) 924-54-25.</div>
+        </details>
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Какая гарантия на работы?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы даём 5 лет гарантии на все виды работ и оборудование. Работаем с проверенными брендами: Rehau, Baxi, Viessmann, Grundfos, TECH, De Dietrich.</div>
+        </details>
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Сколько времени занимает монтаж?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Тёплый пол: 2-3 дня. Радиаторы: 1-2 дня. Котельная: 3-5 дней. Полный комплекс (отопление + водоснабжение + канализация): 5-10 дней в зависимости от сложности объекта.</div>
+        </details>
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Вы работаете только в СПб?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер бесплатный. Помимо отопления, делаем водоснабжение и канализацию.</div>
+        </details>
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Какие материалы вы используете?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Только проверенные бренды с гарантией от производителя: трубы Rehau PEX-a (гарантия 50 лет), котлы Baxi и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH.</div>
+        </details>
+        <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
+            <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Можно ли оплатить в рассрочку?</summary>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Да, мы предлагаем удобные условия оплаты. Возможна предоплата 50% и окончательный расчёт после сдачи объекта. Подробности по телефону: +7 (911) 924-54-25.</div>
+        </details>
+    </div>
+</section>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Сколько стоит монтаж отопления?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Тёплый пол от 2 500 ₽/м², радиаторы от 10 000 ₽/шт, котельная под ключ от 150 000 ₽. Точная стоимость зависит от площади дома, этажности и типа топлива."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Какая гарантия на работы?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы даём 5 лет гарантии на все виды работ и оборудование. Работаем с проверенными брендами: Rehau, Baxi, Viessmann, Grundfos, TECH, De Dietrich."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Сколько времени занимает монтаж?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Тёплый пол: 2-3 дня. Радиаторы: 1-2 дня. Котельная: 3-5 дней. Полный комплекс: 5-10 дней."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Вы работаете только в СПб?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер бесплатный."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Какие материалы вы используете?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Только проверенные бренды: трубы Rehau PEX-a (гарантия 50 лет), котлы Baxi и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Можно ли оплатить в рассрочку?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, возможна предоплата 50% и окончательный расчёт после сдачи объекта."
+            }
+        }
+    ]
+}
 </script>
 </body>
 </html>
