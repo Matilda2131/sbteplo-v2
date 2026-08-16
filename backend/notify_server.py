@@ -6,8 +6,8 @@ import json
 import httpx
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-TG_TOKEN = os.getenv("TG_BOT_TOKEN", "8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM")
-TG_CHAT_ID = os.getenv("TG_CHAT_ID", "425052747")
+TG_TOKEN = os.getenv("TG_BOT_TOKEN")
+TG_CHAT_ID = os.getenv("TG_CHAT_ID")
 PORT = 3000
 
 def send_telegram(text):

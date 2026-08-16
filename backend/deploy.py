@@ -3,6 +3,7 @@
 
 import httpx
 import json
+import os
 import time
 
 # RENDER_API_KEY = input("Вставь Render API Key: ").strip()
@@ -33,9 +34,9 @@ service_data = {
     "startCommand": "cd backend && python notify_server.py",
     "env": "python",
     "envVars": [
-        {"key": "TG_BOT_TOKEN", "value": "8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM"},
-        {"key": "TG_CHAT_ID", "value": "425052747"},
-        {"key": "DEEPSEEK_KEY", "value": "sk-e572243c595540e5a9331a348e4d326c"}
+        {"key": "TG_BOT_TOKEN", "value": os.environ["TG_BOT_TOKEN"]},
+        {"key": "TG_CHAT_ID", "value": os.environ["TG_CHAT_ID"]},
+        {"key": "DEEPSEEK_KEY", "value": os.environ["DEEPSEEK_KEY"]}
     ]
 }
 

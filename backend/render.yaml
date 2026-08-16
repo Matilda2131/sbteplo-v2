@@ -6,8 +6,8 @@ services:
     startCommand: python notify_server.py
     envVars:
       - key: TG_BOT_TOKEN
-        value: 8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM
+        sync: false
       - key: TG_CHAT_ID
-        value: 425052747
+        sync: false
       - key: DEEPSEEK_KEY
-        value: sk-e572243c595540e5a9331a348e4d326c
+        sync: false

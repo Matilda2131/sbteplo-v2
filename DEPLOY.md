@@ -25,9 +25,11 @@ https://dashboard.render.com
 
 | Key | Value |
 |-----|-------|
-| `TG_BOT_TOKEN` | `8898753323:AAHYeBb626rCRr_ju4CpNoMYl8lUXBx-qBM` |
-| `TG_CHAT_ID` | `425052747` |
-| `DEEPSEEK_KEY` | `sk-e572243c595540e5a9331a348e4d326c` |
+| `TG_BOT_TOKEN` | получи у @BotFather (Bot Settings → API Token) |
+| `TG_CHAT_ID` | свой chat id |
+| `DEEPSEEK_KEY` | получи в кабинете platform.deepseek.com → API keys |
+
+Реальные значения храни только в переменных окружения на Render, в репозиторий их не коммить.
 
 ### Шаг 6: Задеплой
 Нажми **"Create Background Worker"**
