@@ -882,6 +882,20 @@
                     <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-950 font-black text-sm">2</span>
                     Система отопления
                 </h3>
+                <div class="mb-8">
+                    <label class="text-dark-200 font-semibold block mb-3">Что считать в смету</label>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                            <input type="checkbox" id="includeFloorCalc" checked class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
+                            <span class="text-dark-200">Тёплые полы</span>
+                        </label>
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                            <input type="checkbox" id="includeRadiatorCalc" checked class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
+                            <span class="text-dark-200">Радиаторы</span>
+                        </label>
+                    </div>
+                    <p class="text-dark-500 text-sm mt-2">Можно выбрать одно, оба (гибридная система) — расчёт учтёт только отмеченное.</p>
+                </div>
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Способ укладки ТП</label>
@@ -2421,11 +2435,16 @@ function calculateAll() {
     const waterResult = calculateWaterCalc();
     const sewageResult = calculateSewageCalc();
 
-    const grandTotal = floorResult.total + radiatorResult.total + boilerResult.total + waterResult.total + sewageResult.total;
+    const includeFloor = document.getElementById('includeFloorCalc')?.checked ?? true;
+    const includeRadiator = document.getElementById('includeRadiatorCalc')?.checked ?? true;
+    const floorContribution = includeFloor ? floorResult.total : 0;
+    const radiatorContribution = includeRadiator ? radiatorResult.total : 0;
+
+    const grandTotal = floorContribution + radiatorContribution + boilerResult.total + waterResult.total + sewageResult.total;
     const activeArea = floorResult.area || 1;
 
-    document.getElementById('floorTotalDisplay').textContent = formatRubricCalc(floorResult.total);
-    document.getElementById('radiatorTotalDisplay').textContent = formatRubricCalc(radiatorResult.total);
+    document.getElementById('floorTotalDisplay').textContent = includeFloor ? formatRubricCalc(floorResult.total) : 'не выбрано';
+    document.getElementById('radiatorTotalDisplay').textContent = includeRadiator ? formatRubricCalc(radiatorResult.total) : 'не выбрано';
     document.getElementById('boilerTotalDisplay').textContent = formatRubricCalc(boilerResult.total);
     document.getElementById('waterTotalDisplay').textContent = formatRubricCalc(waterResult.total);
     document.getElementById('sewageTotalDisplay').textContent = formatRubricCalc(sewageResult.total);
@@ -2448,8 +2467,8 @@ function calculateAll() {
         const calcData = {
             area: activeArea,
             total: grandTotal,
-            floor: floorResult.total,
-            radiator: radiatorResult.total,
+            floor: floorContribution,
+            radiator: radiatorContribution,
             boiler: boilerResult.total,
             water: waterResult.total,
             sewage: sewageResult.total
