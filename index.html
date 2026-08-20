@@ -129,7 +129,7 @@
 
         /* Кастомный курсор */
         .cursor-dot { width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: transform 0.1s; mix-blend-mode: difference; }
-        .cursor-ring { width: 40px; height: 40px; border: 2px solid rgba(251,191,36,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99998; transition: all 0.15s ease-out; }
+        .cursor-ring { width: 40px; height: 40px; border: 2px solid rgba(251,191,36,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99998; transition: transform 0.15s ease-out, border-color 0.15s ease-out, background 0.15s ease-out; }
         .cursor-ring.hover { transform: scale(1.8); border-color: #fbbf24; background: rgba(251,191,36,0.1); }
 
         /* Прелоадер */
@@ -851,7 +851,7 @@
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Общая площадь дома (м²)</label>
-                        <input type="number" id="totalHouseAreaCalc" value="" placeholder="Введите площадь" class="premium-input" oninput="validateAreaCalc()" onfocus="this.select()">
+                        <input type="number" id="totalHouseAreaCalc" value="" placeholder="Введите площадь" class="premium-input area-input-calc" oninput="validateAreaCalc()" onfocus="this.select()">
                         <p id="areaWarningCalc" class="text-amber-400 text-xs mt-2 hidden">⚠️ Сумма площадей комнат отличается более чем на 5%.</p>
                     </div>
                     <div>
@@ -1465,8 +1465,8 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
+    ringX += (mouseX - ringX) * 0.35;
+    ringY += (mouseY - ringY) * 0.35;
     cursorRing.style.left = ringX - 20 + 'px';
     cursorRing.style.top = ringY - 20 + 'px';
     requestAnimationFrame(animateRing);
