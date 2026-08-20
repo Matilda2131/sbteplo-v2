@@ -866,6 +866,10 @@
                         </select>
                     </div>
                 </div>
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <button type="button" onclick="autoFillAreaCalc()" class="btn-outline px-5 py-2.5 text-sm">Заполнить автоматически по общей площади</button>
+                    <span class="text-dark-500 text-xs">Впишите общую площадь и этажность выше, нажмите кнопку — площадь разложится по этажам поровну. Комнаты можно поправить вручную.</span>
+                </div>
                 <div id="floorsContainerCalc" class="space-y-6"></div>
                 <div class="mt-8 p-5 bg-gold-500/5 border border-gold-500/20 rounded-2xl flex justify-between items-center">
                     <span class="text-dark-200 font-semibold">Расчётная площадь:</span>
@@ -896,7 +900,11 @@
                     </div>
                     <p class="text-dark-500 text-sm mt-2">Можно выбрать одно, оба (гибридная система) — расчёт учтёт только отмеченное.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <button type="button" id="advancedToggleCalc" onclick="toggleAdvancedCalc()" class="btn-outline px-5 py-2.5 text-sm">Показать детали настройки ▾</button>
+                    <span class="text-dark-500 text-xs">Не трогали — уже стоят стандартные значения (газ, биметалл, монтаж на скобы).</span>
+                </div>
+                <div id="advancedOptionsCalc" class="grid md:grid-cols-3 gap-6 mb-8 hidden">
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Способ укладки ТП</label>
                         <select id="floorInstallMethodCalc" class="premium-select">
@@ -1603,6 +1611,37 @@ function updateFloorRoomsCalc(floorIdx) {
     let roomsHtml = '';
     newRooms.forEach(room => { roomsHtml += createRoomInputHtml(floorIdx, room.id, room.area, room.active); });
     listContainer.innerHTML = roomsHtml;
+    calculateProjectTotalsCalc();
+}
+
+function toggleAdvancedCalc() {
+    const box = document.getElementById('advancedOptionsCalc');
+    const btn = document.getElementById('advancedToggleCalc');
+    const isHidden = box.classList.toggle('hidden');
+    btn.textContent = isHidden ? 'Показать детали настройки ▾' : 'Скрыть детали настройки ▴';
+}
+
+function autoFillAreaCalc() {
+    const declared = parseFloat(document.getElementById('totalHouseAreaCalc').value) || 0;
+    const floorsCount = houseStructureCalc.length;
+    const warningEl = document.getElementById('areaWarningCalc');
+    if (declared <= 0 || floorsCount === 0) {
+        warningEl.textContent = '⚠️ Сначала впишите общую площадь дома и выберите этажность.';
+        warningEl.classList.remove('hidden');
+        return;
+    }
+    const perFloor = Math.floor(declared / floorsCount);
+    houseStructureCalc.forEach((floor, fIdx) => {
+        const isLast = fIdx === houseStructureCalc.length - 1;
+        const floorArea = isLast ? (declared - perFloor * (floorsCount - 1)) : perFloor;
+        floor.rooms.forEach((room, rIdx) => {
+            const areaVal = rIdx === 0 ? floorArea : 0;
+            const areaInput = document.getElementById(`floor-${fIdx + 1}-room-${room.id}-area-calc`);
+            const activeInput = document.getElementById(`floor-${fIdx + 1}-room-${room.id}-active-calc`);
+            if (areaInput) areaInput.value = areaVal;
+            if (activeInput) activeInput.checked = true;
+        });
+    });
     calculateProjectTotalsCalc();
 }
 
