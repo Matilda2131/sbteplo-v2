@@ -1611,9 +1611,16 @@ function calculateProjectTotalsCalc() {
 function validateAreaCalc(currentTotal) {
     const declared = parseFloat(document.getElementById('totalHouseAreaCalc').value) || 0;
     const calc = currentTotal !== undefined ? currentTotal : parseFloat(document.getElementById('calculatedTotalAreaCalc').textContent) || 0;
-    if (declared > 0 && calc > 0) {
+    const warningEl = document.getElementById('areaWarningCalc');
+    if (declared > 0 && calc === 0) {
+        warningEl.textContent = '⚠️ Заполните площадь хотя бы одной комнаты ниже — весь расчёт сметы идёт от неё, а не от общей площади дома.';
+        warningEl.classList.remove('hidden');
+    } else if (declared > 0 && calc > 0) {
         const diff = Math.abs(declared - calc) / declared;
-        document.getElementById('areaWarningCalc').classList.toggle('hidden', diff <= 0.05);
+        warningEl.textContent = '⚠️ Сумма площадей комнат отличается более чем на 5%.';
+        warningEl.classList.toggle('hidden', diff <= 0.05);
+    } else {
+        warningEl.classList.add('hidden');
     }
 }
 
