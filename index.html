@@ -849,7 +849,7 @@
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Общая площадь дома (м²)</label>
-                        <input type="number" id="totalHouseAreaCalc" value="" placeholder="Введите площадь" class="premium-input" oninput="validateAreaCalc()">
+                        <input type="number" id="totalHouseAreaCalc" value="" placeholder="Введите площадь" class="premium-input" oninput="validateAreaCalc()" onfocus="this.select()">
                         <p id="areaWarningCalc" class="text-amber-400 text-xs mt-2 hidden">⚠️ Сумма площадей комнат отличается более чем на 5%.</p>
                     </div>
                     <div>
@@ -1065,7 +1065,7 @@
                         </div>
                         <div>
                             <label class="text-dark-200 font-semibold block mb-3">Повороты (шт.)</label>
-                            <input type="number" id="sewageTurnsCalc" value="4" min="0" max="30" class="premium-input">
+                            <input type="number" id="sewageTurnsCalc" value="4" min="0" max="30" class="premium-input" onfocus="this.select()">
                         </div>
                     </div>
                     <div class="mt-4">
@@ -1569,7 +1569,7 @@ function createRoomInputHtml(floorIdx, roomIdx, areaVal, isActive) {
     return `<div class="flex items-center gap-3 bg-dark-900/50 p-3 rounded-xl border border-dark-800 hover:border-dark-700 transition-all">
         <input type="checkbox" id="floor-${floorIdx}-room-${roomIdx}-active-calc" ${isActive?'checked':''} class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateProjectTotalsCalc()">
         <label class="text-dark-300 text-sm flex-1 cursor-pointer" for="floor-${floorIdx}-room-${roomIdx}-active-calc">Комната ${roomIdx}</label>
-        <input type="number" id="floor-${floorIdx}-room-${roomIdx}-area-calc" value="${areaVal}" placeholder="м²" min="0" max="300" class="premium-input w-20 px-2 py-2 text-sm text-right" oninput="calculateProjectTotalsCalc()">
+        <input type="number" id="floor-${floorIdx}-room-${roomIdx}-area-calc" value="${areaVal}" placeholder="м²" min="0" max="300" class="premium-input w-20 px-2 py-2 text-sm text-right" oninput="calculateProjectTotalsCalc()" onfocus="this.select()">
         <span class="text-dark-500 text-sm">м²</span>
     </div>`;
 }
