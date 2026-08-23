@@ -906,12 +906,13 @@
                 </div>
                 <div id="advancedOptionsCalc" class="grid md:grid-cols-3 gap-6 mb-8 hidden">
                     <div>
-                        <label class="text-dark-200 font-semibold block mb-3">Способ укладки ТП</label>
+                        <label class="text-dark-200 font-semibold block mb-3">Способ укладки тёплого пола</label>
                         <select id="floorInstallMethodCalc" class="premium-select">
                             <option value="anchors">На пенополистирол + скобы</option>
                             <option value="mats">На профильные маты</option>
                             <option value="mesh">На монтажную сетку</option>
                         </select>
+                        <p class="text-dark-500 text-xs mt-2">Если не знаете — оставьте по умолчанию, это самый ходовой вариант.</p>
                     </div>
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Шаг укладки трубы</label>
@@ -920,6 +921,7 @@
                             <option value="15">15 см (стандарт)</option>
                             <option value="20">20 см (эконом)</option>
                         </select>
+                        <p class="text-dark-500 text-xs mt-2">Расстояние между витками трубы. Чем меньше — тем равномернее греет пол, но труб уходит больше.</p>
                     </div>
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Покомнатная автоматика</label>
@@ -969,6 +971,7 @@
                             <option value="floor">Из пола</option>
                             <option value="wall">Из стены (штробление)</option>
                         </select>
+                        <p class="text-dark-500 text-xs mt-2">Штробление — труба прячется в стене, придётся немного подолбить и потом заделать.</p>
                     </div>
                 </div>
                 <div class="flex justify-between mt-8">
@@ -998,10 +1001,12 @@
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Общее кол-во точек водоразбора</label>
                         <input type="number" id="waterPointsTotalCalc" value="" placeholder="Сколько точек водоразбора" min="1" max="50" class="premium-input">
+                        <p class="text-dark-500 text-xs mt-2">Точка водоразбора — любое место, куда подведена вода: кран, смеситель, унитаз, стиралка, посудомойка. Посчитайте все краны в доме.</p>
                     </div>
                     <div>
                         <label class="text-dark-200 font-semibold block mb-3">Скрытые механизмы (инсталляции)</label>
                         <input type="number" id="waterConcealedMechanismsCalc" value="" placeholder="Сколько инсталляций" min="0" max="20" class="premium-input">
+                        <p class="text-dark-500 text-xs mt-2">Инсталляция — унитаз или раковина, у которых бачок спрятан в стене, а видна только кнопка смыва. Если такого нет — ставьте 0.</p>
                     </div>
                 </div>
                 <div class="space-y-3 mb-6">
@@ -1017,31 +1022,31 @@
                 <div class="space-y-2 mb-8">
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterMech" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Механический фильтр (Big Blue 20")</span>
+                        <span class="text-dark-200 text-sm flex-1">Механический фильтр (Big Blue 20")<br><span class="text-dark-500 text-xs">Ловит песок, ржавчину и крупный мусор из воды.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterSediment" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Картриджный осадочный (5 мкм)</span>
+                        <span class="text-dark-200 text-sm flex-1">Картриджный осадочный (5 мкм)<br><span class="text-dark-500 text-xs">Убирает мелкую взвесь и муть, которую не ловит механический фильтр.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterCarbon" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Сорбционный угольный</span>
+                        <span class="text-dark-200 text-sm flex-1">Сорбционный угольный<br><span class="text-dark-500 text-xs">Убирает запах и привкус хлорки из воды.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterOsmosis" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Обратный осмос</span>
+                        <span class="text-dark-200 text-sm flex-1">Обратный осмос<br><span class="text-dark-500 text-xs">Самая глубокая очистка — вода на выходе как бутилированная. Обычно ставят под мойку на кухне.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterSoftener" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Умягчитель магнитный</span>
+                        <span class="text-dark-200 text-sm flex-1">Умягчитель магнитный<br><span class="text-dark-500 text-xs">Снижает накипь в трубах, чайнике и стиральной машине.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterAutoStation" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Автоматическая станция водоподготовки</span>
+                        <span class="text-dark-200 text-sm flex-1">Автоматическая станция водоподготовки<br><span class="text-dark-500 text-xs">Все фильтры выше в одном блоке, сам промывается — не нужно вручную менять картриджи.</span></span>
                     </label>
                     <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
                         <input type="checkbox" id="waterFilterReducer" class="w-4 h-4 accent-gold-500 rounded">
-                        <span class="text-dark-200 text-sm flex-1">Редуктор давления</span>
+                        <span class="text-dark-200 text-sm flex-1">Редуктор давления<br><span class="text-dark-500 text-xs">Снижает слишком сильный напор воды из городской трубы, чтобы не рвало технику и краны.</span></span>
                     </label>
                 </div>
                 <div class="flex justify-between mt-8">
@@ -1077,6 +1082,7 @@
                                 <option value="septic">Септик</option>
                                 <option value="autonomous">Автономная станция (АС)</option>
                             </select>
+                            <p class="text-dark-500 text-xs mt-2">Дом подключен к городской сети — берите "Центральная". Если нет (частный дом за городом) — "Септик" (проще и дешевле) или "Автономная станция" (чище на выходе, дороже).</p>
                         </div>
                         <div>
                             <label class="text-dark-200 font-semibold block mb-3">Глубина прокладки (м)</label>
@@ -1086,10 +1092,12 @@
                                 <option value="1.5">1.5 м (ниже промерзания)</option>
                                 <option value="2.0">2.0 м (глубокое)</option>
                             </select>
+                            <p class="text-dark-500 text-xs mt-2">Если не знаете — оставьте по умолчанию, монтажник уточнит на замере.</p>
                         </div>
                         <div>
                             <label class="text-dark-200 font-semibold block mb-3">Повороты (шт.)</label>
                             <input type="number" id="sewageTurnsCalc" value="4" min="0" max="30" class="premium-input" onfocus="this.select()">
+                            <p class="text-dark-500 text-xs mt-2">Сколько раз труба меняет направление на пути от дома до колодца/септика. Если не уверены — оставьте 4, это средний вариант.</p>
                         </div>
                     </div>
                     <div class="mt-4">
