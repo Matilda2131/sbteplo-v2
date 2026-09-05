@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
+const EXPERIENTIAL_KEY = process.env.EXPERIENTIAL_KEY;
 const OPENROUTER_KEY = process.env.OPENROUTER_KEY;
 const PORT = process.env.PORT || 3000;
 
@@ -16,19 +16,19 @@ const SYSTEM_PROMPT = `Ты — Василий, инженер по отопле
 Гарантия 5 лет. Материалы: Rehau, Baxi, Viessmann.
 Если не знаешь — скажи "позвони Саше: +7(911)924-54-25".`;
 
-async function callDeepSeek(messages) {
-    if (!DEEPSEEK_KEY) return null;
+async function callExperiential(messages) {
+    if (!EXPERIENTIAL_KEY) return null;
     try {
-        const response = await fetch('https://api.deepseek.com/chat/completions', {
+        const response = await fetch('https://api.experientiallabs.ai/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + DEEPSEEK_KEY,
+                'Authorization': 'Bearer ' + EXPERIENTIAL_KEY,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'deepseek-chat',
+                model: 'gpt-5.6-luna',
                 messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages.slice(-6)],
-                max_tokens: 200,
+                max_tokens: 400,
                 temperature: 0.6
             })
         });
@@ -36,7 +36,7 @@ async function callDeepSeek(messages) {
             const data = await response.json();
             if (data.choices && data.choices[0]) return data.choices[0].message.content;
         }
-    } catch (e) { console.error('DeepSeek error:', e.message); }
+    } catch (e) { console.error('Experiential error:', e.message); }
     return null;
 }
 
@@ -72,7 +72,7 @@ app.post('/api/chat', async (req, res) => {
         const { messages } = req.body;
         if (!messages || !messages.length) return res.status(400).json({ error: 'No messages' });
 
-        let reply = await callDeepSeek(messages);
+        let reply = await callExperiential(messages);
         if (!reply) reply = await callOpenRouter(messages);
         if (!reply) return res.json({ choices: [{ message: { content: 'Попробуй позвонить: +7(911)924-54-25' } }] });
 
