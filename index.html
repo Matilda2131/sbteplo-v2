@@ -200,7 +200,7 @@
         .hero-title { position: relative; display: inline-block; }
         .hero-title::before { content: ''; position: absolute; inset: -10px; background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(245,158,11,0.1)); filter: blur(20px); border-radius: 20px; z-index: -1; animation: heroGlow 3s ease-in-out infinite; }
         @keyframes heroGlow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); border-radius: 9999px; font-size: 0.875rem; color: #fbbf24; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; animation: badgeFloat 3s ease-in-out infinite; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); border-radius: 9999px; font-size: 0.875rem; color: #fbbf24; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; animation: badgeFloat 3s ease-in-out infinite; flex-wrap: wrap; justify-content: center; text-align: center; white-space: normal; max-width: 100%; }
         @keyframes badgeFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         .hero-name { position: relative; display: inline-block; }
         .hero-name::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #fbbf24, #f59e0b, transparent); border-radius: 2px; animation: nameUnderline 2s ease-in-out infinite; }
@@ -278,6 +278,7 @@
             
             /* Мобильные улучшения */
             .hero-title { font-size: 2rem !important; }
+            .hero-badge { font-size: 0.7rem !important; border-radius: 16px !important; text-align: center; }
             h2 { font-size: 1.75rem !important; }
             h3 { font-size: 1.25rem !important; }
             .glass-card { padding: 1rem !important; margin-bottom: 1rem; }
@@ -631,7 +632,7 @@
             </div>
             <div class="reveal-right relative">
                 <div class="relative rounded-3xl overflow-hidden gold-glow">
-                    <img src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=800&q=80" alt="Премиальная котельная" class="w-full h-[500px] object-cover" loading="lazy">
+                    <img src="images/sasha-hockey.jpg" alt="Саша Белый в хоккейных воротах" class="w-full h-[500px] object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent"></div>
                 </div>
                 <div class="absolute -bottom-6 -left-6 bg-dark-900 border border-gold-500/20 rounded-2xl p-6 gold-glow">
@@ -719,7 +720,7 @@
                 </div>
             </div>
             
-            <div class="glass-card rounded-2xl p-6 text-center reveal-scale hover:border-gold-500/30 transition-all group" style="transition-delay:0.2s">
+            <a href="logos/tech-sertifikat.jpg" target="_blank" rel="noopener" class="glass-card rounded-2xl p-6 text-center reveal-scale hover:border-gold-500/30 transition-all group" style="transition-delay:0.2s">
                 <div class="h-20 w-36 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center transform group-hover:scale-110 transition-transform p-3">
                     <img src="logos/tech.png" alt="TECH" class="max-w-full max-h-full w-auto h-auto object-contain">
                 </div>
@@ -729,7 +730,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                     Офиц. представитель СЗ
                 </div>
-            </div>
+            </a>
             
             <div class="glass-card rounded-2xl p-6 text-center reveal-scale hover:border-gold-500/30 transition-all group" style="transition-delay:0.3s">
                 <div class="h-20 w-36 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center transform group-hover:scale-110 transition-transform p-3">
@@ -766,11 +767,11 @@
                 </div>
             </div>
             <div class="portfolio-item reveal-scale h-80" style="transition-delay:0.1s">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Особняк" class="w-full h-full object-cover" loading="lazy">
+                <img src="images/kotelnaya-petergof.jpg" alt="Котельная" class="w-full h-full object-cover" loading="lazy">
                 <div class="portfolio-overlay">
                     <div>
                         <div class="text-gold-400 text-sm font-semibold mb-1">Особняк • 450 м²</div>
-                        <div class="text-white font-bold text-xl">Петергоф</div>
+                        <div class="text-white font-bold text-xl">Ленинское</div>
                         <div class="text-dark-300 text-sm mt-1">Автономная котельная, рециркуляция ГВС</div>
                     </div>
                 </div>
@@ -1757,13 +1758,22 @@ function calculateFloorCalc() {
         workPricePerM2Calc = 1100; methodNameCalc = 'Пенополистирол 50мм, плёнка, якорные скобы'; insulationPriceCalc = 450; baseMaterialPriceCalc = 200;
     }
 
-    let totalPipeLen = 0, totalContours = 0, breakdownHtml = '';
+    let totalPipeLen = 0, totalContours = 0, roomBreakdownItems = [];
     houseStructureCalc.forEach(floor => {
         if (floor.calculatedArea > 0) {
-            const contours = Math.max(1, Math.ceil(floor.calculatedArea / 15));
             const pipeLen = Math.ceil(floor.calculatedArea * (100 / pipeStep));
-            totalPipeLen += pipeLen; totalContours += contours;
-            breakdownHtml += `<div class="flex justify-between py-2 border-b border-dark-800/50 last:border-0"><span class="text-dark-400 text-sm">Этаж ${floor.floor} (${floor.calculatedArea} м²)</span><span class="text-dark-200 font-semibold text-sm text-right">${contours} конт. | ${(floor.calculatedArea * wPerM2Calc / 1000).toFixed(1)} кВт</span></div>`;
+            totalPipeLen += pipeLen;
+            (floor.rooms || []).forEach(room => {
+                if (room.active && room.area > 0) {
+                    const roomContours = Math.max(1, Math.ceil(room.area / 15));
+                    const roomPowerW = Math.round(room.area * wPerM2Calc);
+                    totalContours += roomContours;
+                    roomBreakdownItems.push({
+                        label: `Этаж ${floor.floor}, помещение ${room.id} (${room.area} м²)`,
+                        value: `${roomContours} конт. | ${roomPowerW} Вт`
+                    });
+                }
+            });
         }
     });
 
@@ -1780,6 +1790,8 @@ function calculateFloorCalc() {
     const totalMaterialsCalc = pipeMaterialCostCalc + insulationMaterialCostCalc + baseMaterialCostCalc + collectorCostCalc + automationCostCalc;
     const grandTotalCalc = totalMaterialsCalc + totalWorkCalc;
 
+    const folderRooms = roomBreakdownItems.length ? createFolderCalc('Разбивка по помещениям', icons.chart, roomBreakdownItems, false) : '';
+
     const folder1 = createFolderCalc('Материалы и оборудование', icons.mat, [
         { label: 'Способ укладки', value: methodNameCalc },
         { label: 'Труба PEX-a (Rehau/Uponor)', value: `${totalPipeLen} м.п. (${formatRubricCalc(pipeMaterialCostCalc)})` },
@@ -1788,7 +1800,7 @@ function calculateFloorCalc() {
         ...(hasAutomation ? [{ label: 'Покомнатная автоматика', value: `${totalContours} конт. × 13 500 ₽ (${formatRubricCalc(automationCostCalc)})` }] : [])
     ], false);
 
-    const folder2 = createFolderCalc('Итоговая цена', icons.tool, [
+    const folder2 = createFolderCalc('Итоговая цена работ', icons.tool, [
         { label: 'Работа по укладке основания и трубы', value: `${activeArea} м² × ${workPricePerM2Calc} ₽` },
         { label: 'Монтаж коллектора и пуско-наладка', value: formatRubricCalc(collectorCountCalc * 5000 + (hasAutomation ? totalContours * 1500 : 0)) }
     ], false);
@@ -1826,7 +1838,14 @@ function calculateFloorCalc() {
                     </div>
                 </div>
             </div>
-        </details>`;
+        </details>
+        ${folderRooms}
+        ${folder1}
+        ${folder2}
+        ${folder3}
+        <div class="mt-3 p-4 rounded-xl bg-dark-950/50 border border-dark-800 text-dark-500 text-xs leading-relaxed">
+            Расчёт мощности сделан для стандартных условий: −22 °C на улице, +21 °C внутри помещения, температура поверхности пола +22 °C. Один контур — не более 80 м трубы. Материал напольного покрытия (плитка, ламинат и т.д.) в расчёте не учитывается — уточняется на замере. Точная смета формируется после выезда специалиста.
+        </div>`;
 
     document.getElementById('resultPanel-0').innerHTML = fullHtml;
     return { total: grandTotalCalc, area: activeArea };
@@ -1994,7 +2013,13 @@ function calculateBoilerCalc() {
                     </div>
                 </div>
             </div>
-        </details>`;
+        </details>
+        ${folder1}
+        ${folder2}
+        ${folder3}
+        <div class="mt-3 p-4 rounded-xl bg-dark-950/50 border border-dark-800 text-dark-500 text-xs leading-relaxed">
+            Мощность котла рассчитана с запасом ~20% от базовой теплопотребности дома (укрупнённо, 0.1 кВт/м² на площадь с учётом этажности и утепления по СПб и ЛО). Количество насосных групп равно числу независимых контуров (отопление, тёплый пол, ГВС и т.д.). Расширительный бак посчитан по объёму системы — при необходимости разбивается на несколько баков меньшего объёма для компактности и резерва. Точный подбор оборудования и обвязки — на выезде специалиста.
+        </div>`;
     return { total: grandTotal, area: activeArea, power: recommendedPower };
 }
 
@@ -2833,7 +2858,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Вы работаете только в СПб?</summary>
-            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер бесплатный. Помимо отопления, делаем водоснабжение и канализацию.</div>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер — 10 000 ₽, сумма входит в смету при заказе. Помимо отопления, делаем водоснабжение и канализацию.</div>
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Какие материалы вы используете?</summary>
@@ -2881,7 +2906,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "name": "Вы работаете только в СПб?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер бесплатный."
+                "text": "Мы работаем в Санкт-Петербурге и Ленинградской области. Выезд на замер — 10 000 ₽, сумма входит в смету при заказе."
             }
         },
         {
