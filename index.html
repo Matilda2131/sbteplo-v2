@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Монтаж отопления в СПб — Отопление от Саши Белого</title>
-    <meta name="description" content="Монтаж отопления, водоснабжения и канализации в СПб. Rehau, Baxi, Grundfos. Гарантия 5 лет. Калькулятор стоимости онлайн.">
-    <meta name="keywords" content="монтаж отопления спб, отопление частного дома спб, теплые полы стоимость, коллекторная разводка, монтаж радиаторов, бойлер косвенного нагрева, монтаж водоснабжения спб, канализация частный дом, отопление ленинградская область, монтаж котельной, rehau спб, baxi спб, de dietrich спб">
+    <meta name="description" content="Монтаж отопления, водоснабжения и канализации в СПб. Rehau, Uponor, Baxi, Buderus, Grundfos. Гарантия 5 лет. Калькулятор стоимости онлайн.">
+    <meta name="keywords" content="монтаж отопления спб, отопление частного дома спб, теплые полы стоимость, коллекторная разводка, монтаж радиаторов, бойлер косвенного нагрева, монтаж водоснабжения спб, канализация частный дом, отопление ленинградская область, монтаж котельной, rehau спб, uponor спб, baxi спб, buderus спб, de dietrich спб">
     <meta name="author" content="Саша Белый — Официальный представитель Rehau, Baxi, TECH, De Dietrich">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="geo.region" content="RU-SPB">
@@ -14,7 +14,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Монтаж отопления в СПб — Отопление от Саши Белого">
-    <meta property="og:description" content="Монтаж отопления, водоснабжения и канализации в СПб. Rehau, Baxi, Grundfos. Гарантия 5 лет. Калькулятор стоимости онлайн.">
+    <meta property="og:description" content="Монтаж отопления, водоснабжения и канализации в СПб. Rehau, Uponor, Baxi, Buderus, Grundfos. Гарантия 5 лет. Калькулятор стоимости онлайн.">
     <meta property="og:image" content="https://sbteplo.ru/logos/og_image.jpg?v=2">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -64,11 +64,6 @@
             "closes": "22:00"
         },
         "priceRange": "$$",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "reviewCount": "500"
-        },
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Услуги по монтажу отопления",
@@ -277,7 +272,6 @@
             .btn-gold, .btn-outline, .calc-tab, .result-folder summary, .btn-print, .chat-fab, .chat-send-btn, .chat-quick-btn, .call-fab, .portfolio-item { cursor: pointer; }
             
             /* Мобильные улучшения */
-            .hero-title { font-size: 2rem !important; }
             .hero-badge { font-size: 0.7rem !important; border-radius: 16px !important; text-align: center; }
             h2 { font-size: 1.75rem !important; }
             h3 { font-size: 1.25rem !important; }
@@ -295,6 +289,12 @@
         }
         .print-header { display: none; }
         .print-only { display: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+            .cursor-dot, .cursor-ring { display: none !important; }
+            body { cursor: auto !important; }
+        }
         
         /* Модальное окно статей */
         #articleModal { transition: opacity 0.3s; }
@@ -483,7 +483,7 @@
                 <span class="text-[10px] text-gold-400 tracking-[0.3em] uppercase">Монтаж отопления в СПб</span>
             </div>
         </a>
-            <div class="hidden lg:flex items-center gap-10 text-sm text-dark-300 font-medium">
+            <div class="hidden xl:flex items-center gap-6 text-sm text-dark-300 font-medium">
             <a href="/services/" class="hover:text-gold-400 transition-colors relative group">Услуги<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span></a>
             <a href="#about" class="hover:text-gold-400 transition-colors relative group">О нас<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span></a>
             <a href="#certificates" class="hover:text-gold-400 transition-colors relative group">Сертификаты<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all group-hover:w-full"></span></a>
@@ -499,7 +499,7 @@
                 +7 (911) 924-54-25
             </a>
         </div>
-        <button id="mobileMenuBtn" class="lg:hidden text-white p-2">
+        <button id="mobileMenuBtn" class="xl:hidden text-white p-2">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
     </div>
@@ -526,19 +526,19 @@
                 Отопление от человека, который знает в нём толк
             </div>
             <h1 class="reveal-up mb-8" style="transition-delay:0.1s">
-                <div class="hero-title">
-                    <span class="block text-6xl md:text-8xl lg:text-9xl font-black text-white font-display leading-none">ОТОПЛЕНИЕ</span>
-                </div>
-                <div class="hero-name mt-4">
-                    <span class="block text-4xl md:text-5xl lg:text-6xl font-black gold-text">от Саши Белого</span>
-                </div>
+                <span class="hero-title">
+                    <span class="block text-4xl md:text-8xl lg:text-9xl font-black text-white font-display leading-none">ОТОПЛЕНИЕ</span>
+                </span>
+                <span class="hero-name mt-4">
+                    <span class="block text-2xl md:text-5xl lg:text-6xl font-black gold-text">от Саши Белого</span>
+                </span>
             </h1>
             <p class="reveal-up text-lg md:text-xl text-dark-300 mb-12 max-w-2xl mx-auto leading-relaxed" style="transition-delay:0.2s">
-                Отопление, водоснабжение и канализация под ключ в Санкт-Петербурге и Ленобласти. Гарантия 5 лет, материалы Rehau, Baxi, Viessmann — 40 лет в спорте приучили не халтурить.
+                Отопление, водоснабжение и канализация под ключ в Санкт-Петербурге и Ленобласти. Гарантия 5 лет, материалы Rehau, Uponor, Baxi, Buderus, Viessmann — 40 лет в спорте приучили не халтурить.
             </p>
             <div class="reveal-up flex flex-col sm:flex-row gap-4 justify-center" style="transition-delay:0.3s">
                 <a href="#calculator" class="btn-gold text-center text-lg"><span>Рассчитать стоимость</span></a>
-                <a href="#contact" class="btn-outline text-center text-lg">Позвонить нам</a>
+                <a href="tel:+79119245425" class="btn-outline text-center text-lg">Позвонить нам</a>
             </div>
             <div class="reveal-up flex items-center justify-center gap-6 mt-8 text-dark-400 text-sm flex-wrap" style="transition-delay:0.4s">
                 <div class="flex items-center gap-2">
@@ -597,7 +597,7 @@
                 </div>
                 <div class="reveal-left space-y-6" style="transition-delay:0.15s">
                     <p class="text-dark-300 text-lg leading-relaxed">Саша Белый — 40 лет в хоккее, промышленное рыболовство. Знаю, что такое качество и надёжность. Отопление от человека, который знает в нём толк — понимаю людей, которые ценят комфорт и хорошую работу.</p>
-                    <p class="text-dark-300 leading-relaxed">Мы работаем в Санкт-Петербурге и Ленинградской области более 10 лет. За это время смонтировали отопление, водоснабжение и канализацию в сотнях частных домов и коттеджей. Используем только проверенные материалы: Rehau, Baxi, Viessmann, Grundfos. Гарантия на все работы — 5 лет.</p>
+                    <p class="text-dark-300 leading-relaxed">Мы работаем в Санкт-Петербурге и Ленинградской области более 10 лет. За это время смонтировали отопление, водоснабжение и канализацию в сотнях частных домов и коттеджей. Используем только проверенные материалы: Rehau, Uponor, Baxi, Buderus, Grundfos, Viessmann. Гарантия на все работы — 5 лет.</p>
                     <p class="text-dark-300 leading-relaxed">Наш подход — честность и качество. Мы не экономим на материалах, не скрываем подводные камни. Каждый проект рассчитывается индивидуально, с учётом особенностей вашего дома. Работаем «под ключ» — от проекта до сдачи объекта.</p>
                     <div class="space-y-4">
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/30 transition-all">
@@ -665,7 +665,7 @@
                     <svg class="w-8 h-8 text-dark-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
                 <h3 class="text-white font-bold mb-2">Премиум материалы</h3>
-                <p class="text-dark-400 text-sm">Rehau, Baxi, Viessmann, Grundfos — только проверенные бренды с гарантией от производителя.</p>
+                <p class="text-dark-400 text-sm">Rehau, Uponor, Baxi, Buderus, Grundfos, Viessmann — только проверенные бренды с гарантией от производителя.</p>
             </div>
             <div class="glass-card rounded-2xl p-6 text-center reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.2s">
                 <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
@@ -898,8 +898,20 @@
                             <input type="checkbox" id="includeRadiatorCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Радиаторы</span>
                         </label>
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                            <input type="checkbox" id="includeBoilerCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
+                            <span class="text-dark-200">Котельная</span>
+                        </label>
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                            <input type="checkbox" id="includeWaterCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
+                            <span class="text-dark-200">Водоснабжение</span>
+                        </label>
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                            <input type="checkbox" id="includeSewageCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
+                            <span class="text-dark-200">Канализация</span>
+                        </label>
                     </div>
-                    <p class="text-dark-500 text-sm mt-2">Можно выбрать одно, оба (гибридная система) — расчёт учтёт только отмеченное.</p>
+                    <p class="text-dark-500 text-sm mt-2">Отметьте, что нужно посчитать — расчёт учтёт только отмеченное.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3 mb-6">
                     <button type="button" id="advancedToggleCalc" onclick="toggleAdvancedCalc()" class="btn-outline px-5 py-2.5 text-sm">Показать детали настройки ▾</button>
@@ -1414,15 +1426,15 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="form-group">
                             <input type="text" id="formNameCalc" name="name" placeholder=" " class="premium-input" required>
-                            <label>Ваше имя</label>
+                            <label for="formNameCalc">Ваше имя</label>
                         </div>
                         <div class="form-group">
                             <input type="tel" id="formPhoneCalc" name="phone" placeholder=" " class="premium-input" required>
-                            <label>Телефон</label>
+                            <label for="formPhoneCalc">Телефон</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="formCommentCalc" name="message" rows="4" class="premium-input resize-none" placeholder="Опишите ваш объект или прикрепите ссылку на проект..."></textarea>
+                        <textarea id="formCommentCalc" name="message" rows="4" class="premium-input resize-none" placeholder="Опишите ваш объект или прикрепите ссылку на проект..." aria-label="Комментарий к заявке"></textarea>
                     </div>
                     <input type="hidden" name="_subject" value="Новая заявка с сайта">
                     <input type="hidden" name="form" value="Калькулятор">
@@ -1435,6 +1447,13 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 gold-text">Заявка отправлена!</h3>
                     <p class="text-dark-400">Наш инженер свяжется с вами в течение 30 минут.</p>
+                </div>
+                <div id="formErrorCalc" class="hidden text-center py-12">
+                    <div class="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-red-400">Не получилось отправить</h3>
+                    <p class="text-dark-400">Позвоните нам напрямую: <a href="tel:+79119245425" class="text-gold-400 font-semibold">+7 (911) 924-54-25</a></p>
                 </div>
             </div>
 
@@ -1939,7 +1958,10 @@ function calculateRadiatorCalc() {
                     </div>
                 </div>
             </div>
-        </details>`;
+        </details>
+        ${folder1}
+        ${folder2}
+        ${folder3}`;
 
     document.getElementById('resultPanel-1').innerHTML = fullHtml;
     return { total: total, area: activeArea };
@@ -1955,8 +1977,8 @@ function calculateBoilerCalc() {
     const recommendedPower = Math.ceil(basePower * 1.2);
     
     let boilerPrice = 0, modelName = '';
-    if (fuelType === 'gas') { boilerPrice = 65000 + (recommendedPower * 2500); modelName = recommendedPower <= 24 ? 'Baxi Eco Four / Viessmann Vitopend' : 'Baxi Luna / Viessmann Vitodens'; }
-    else if (fuelType === 'diesel') { boilerPrice = 120000 + (recommendedPower * 3500); modelName = 'De Dietrich / Baxi Slim'; }
+    if (fuelType === 'gas') { boilerPrice = 65000 + (recommendedPower * 2500); modelName = recommendedPower <= 24 ? 'Baxi Eco Four / Buderus Logamax / Viessmann Vitopend' : 'Baxi Luna / Buderus Logamax plus / Viessmann Vitodens'; }
+    else if (fuelType === 'diesel') { boilerPrice = 120000 + (recommendedPower * 3500); modelName = 'De Dietrich / Baxi Slim / Buderus Logano'; }
     else if (fuelType === 'electric') { boilerPrice = 40000 + (recommendedPower * 2000); modelName = 'Protherm Скат / Vaillant eloBLOCK'; }
     else { boilerPrice = 95000 + (recommendedPower * 3000); modelName = 'Buderus Logano / Baxi Eco Logix'; }
     
@@ -2125,7 +2147,11 @@ function calculateWaterCalc() {
                     </div>
                 </div>
             </div>
-        </details>`;
+        </details>
+        ${folder1}
+        ${folder2}
+        ${folder3}
+        ${folder4}`;
     return { total: grandTotal, area: 0 };
 }
 
@@ -2495,7 +2521,11 @@ function calculateSewageCalc() {
                     </div>
                 </div>
             </div>
-        </details>`;
+        </details>
+        ${folder1}
+        ${folder2}
+        ${folder3}
+        ${folder4}`;
     return { total: grandTotal, area: 0 };
 }
 
@@ -2509,17 +2539,23 @@ function calculateAll() {
 
     const includeFloor = document.getElementById('includeFloorCalc')?.checked ?? true;
     const includeRadiator = document.getElementById('includeRadiatorCalc')?.checked ?? true;
+    const includeBoiler = document.getElementById('includeBoilerCalc')?.checked ?? true;
+    const includeWater = document.getElementById('includeWaterCalc')?.checked ?? true;
+    const includeSewage = document.getElementById('includeSewageCalc')?.checked ?? true;
     const floorContribution = includeFloor ? floorResult.total : 0;
     const radiatorContribution = includeRadiator ? radiatorResult.total : 0;
+    const boilerContribution = includeBoiler ? boilerResult.total : 0;
+    const waterContribution = includeWater ? waterResult.total : 0;
+    const sewageContribution = includeSewage ? sewageResult.total : 0;
 
-    const grandTotal = floorContribution + radiatorContribution + boilerResult.total + waterResult.total + sewageResult.total;
+    const grandTotal = floorContribution + radiatorContribution + boilerContribution + waterContribution + sewageContribution;
     const activeArea = floorResult.area || 1;
 
     document.getElementById('floorTotalDisplay').textContent = includeFloor ? formatRubricCalc(floorResult.total) : 'не выбрано';
     document.getElementById('radiatorTotalDisplay').textContent = includeRadiator ? formatRubricCalc(radiatorResult.total) : 'не выбрано';
-    document.getElementById('boilerTotalDisplay').textContent = formatRubricCalc(boilerResult.total);
-    document.getElementById('waterTotalDisplay').textContent = formatRubricCalc(waterResult.total);
-    document.getElementById('sewageTotalDisplay').textContent = formatRubricCalc(sewageResult.total);
+    document.getElementById('boilerTotalDisplay').textContent = includeBoiler ? formatRubricCalc(boilerResult.total) : 'не выбрано';
+    document.getElementById('waterTotalDisplay').textContent = includeWater ? formatRubricCalc(waterResult.total) : 'не выбрано';
+    document.getElementById('sewageTotalDisplay').textContent = includeSewage ? formatRubricCalc(sewageResult.total) : 'не выбрано';
     document.getElementById('grandTotalDisplay').textContent = formatRubricCalc(grandTotal);
     document.getElementById('grandTotalDisplaySmall').textContent = formatRubricCalc(grandTotal);
     document.getElementById('pricePerM2Display').textContent = activeArea > 0 ? Math.round(grandTotal / activeArea).toLocaleString('ru-RU') : '0';
@@ -2541,9 +2577,9 @@ function calculateAll() {
             total: grandTotal,
             floor: floorContribution,
             radiator: radiatorContribution,
-            boiler: boilerResult.total,
-            water: waterResult.total,
-            sewage: sewageResult.total
+            boiler: boilerContribution,
+            water: waterContribution,
+            sewage: sewageContribution
         };
         fetch(BACKEND_URL + '/api/calc', {
             method: 'POST',
@@ -2578,28 +2614,43 @@ function scrollToContact() {
 }
 
 // ==================== ФОРМА ====================
-document.getElementById('leadFormCalc').addEventListener('submit', function(e) {
+document.getElementById('leadFormCalc').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const formData = new FormData(this);
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"] span');
+    const formData = new FormData(form);
     const name = formData.get('name') || '';
     const phone = formData.get('phone') || '';
-    
-    // Send to backend for Telegram notification
+    const message = formData.get('message') || '';
+
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Отправляем...';
+    form.querySelector('button[type="submit"]').disabled = true;
+
     try {
-        fetch(BACKEND_URL + '/api/lead', {
+        const res = await fetch(BACKEND_URL + '/api/lead', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: name, phone: phone, comment: 'Заявка с сайта', form: 'contact' })
+            body: JSON.stringify({ name: name, phone: phone, comment: message || 'Заявка с сайта', form: 'contact' })
         });
-    } catch(e) {}
-    
-    this.classList.add('hidden');
-    document.getElementById('formSuccessCalc').classList.remove('hidden');
-    setTimeout(() => {
-        this.classList.remove('hidden');
-        document.getElementById('formSuccessCalc').classList.add('hidden');
-        this.reset();
-    }, 4000);
+        if (!res.ok) throw new Error('bad status ' + res.status);
+
+        form.classList.add('hidden');
+        document.getElementById('formSuccessCalc').classList.remove('hidden');
+        setTimeout(() => {
+            form.classList.remove('hidden');
+            document.getElementById('formSuccessCalc').classList.add('hidden');
+            form.reset();
+        }, 4000);
+    } catch (err) {
+        document.getElementById('formErrorCalc').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('formErrorCalc').classList.add('hidden');
+        }, 6000);
+    } finally {
+        submitBtn.textContent = originalBtnText;
+        form.querySelector('button[type="submit"]').disabled = false;
+    }
 });
 
 // ==================== ЧАТ-АССИСТЕНТ "ИНЖЕНЕР АФОНЯ" ====================
@@ -2615,14 +2666,14 @@ const botResponses = {
         'Йо! 👋 Василий на связи. Есть вопросы по отоплению? Задавай — разберёмся вместе. Могу рассчитать стоимость, подобрать оборудование, объяснить как работает! 🔥'
     ],
     prices: {
-        floor: '🔥 Тёплый пол ПРЕМИУМ:\n• Работа: от 1500₽/м²\n• С материалом: от 2500₽/м²\n• Труба Rehau PEX-a (гарантия 50 лет!)\n• Коллектор, стяжка, утеплитель\n• Монтаж: 1-2 дня\n• Гарантия: 5 лет\n\nДля дома 100м²: работа ~150к₽, материалы ~100к₽, итого ~250к₽',
+        floor: '🔥 Тёплый пол ПРЕМИУМ:\n• Работа: от 1500₽/м²\n• С материалом: от 2500₽/м²\n• Труба Rehau/Uponor PEX-a (гарантия 50 лет!)\n• Коллектор, стяжка, утеплитель\n• Монтаж: 1-2 дня\n• Гарантия: 5 лет\n\nДля дома 100м²: работа ~150к₽, материалы ~100к₽, итого ~250к₽',
         radiator: '🔥 Радиаторы:\n• Биметалл: 12000-18000₽/шт\n• Алюминий: 8000-12000₽/шт\n• Дизайн: от 45000₽\n• Монтаж: 3000-5000₽/шт\n\nДля дома 5 помещений: ~100-150к₽',
-        boiler: '🔥 Котельная ПРЕМИУМ:\n• От 150000₽\n• Включает: котёл Baxi/Viessmann, насосы Grundfos, автоматику, монтаж\n• Проектирование и пусконаладка\n• Монтаж: 3-5 дней\n\nДля дома 150м²: котёл 25кВт ~150000₽',
+        boiler: '🔥 Котельная ПРЕМИУМ:\n• От 150000₽\n• Включает: котёл Baxi/Buderus/Viessmann, насосы Grundfos, автоматику, монтаж\n• Проектирование и пусконаладка\n• Монтаж: 3-5 дней\n\nДля дома 150м²: котёл 25кВт ~150000₽',
         water: '💧 Водоснабжение:\n• От 3000₽/точка\n• Коллекторная разводка\n• Бойлер косвенного нагрева\n• Рециркуляция — горячая вода мгновенно\n\nДля дома 5 точек: ~50-80к₽',
         filter: '💧 Фильтры:\n• Механический: 12000₽\n• Обратный осмос: 25000₽\n• Автоматическая станция: 95000₽\n\nПодбираем под качество воды!',
         sewage: '🚰 Канализация:\n• Центральная: от 95000₽\n• Септик: от 220000₽\n• Автономная станция: от 420000₽\n\nВсё включено: трубы, земля, подключение!'
     },
-    about: '🔥 Компания "Отопление от Саши Белого" — работаем в СПб и ЛО.\n\n✅ Гарантия 5 лет\n✅ Премиум-материалы (Rehau, Baxi, Grundfos)\n✅ Полный цикл: от проекта до сдачи\n✅ Бесплатная консультация по телефону\n\nСаша Белый — 40 лет в спорте, знает цену качеству!',
+    about: '🔥 Компания "Отопление от Саши Белого" — работаем в СПб и ЛО.\n\n✅ Гарантия 5 лет\n✅ Премиум-материалы (Rehau, Uponor, Baxi, Buderus, Grundfos, Viessmann)\n✅ Полный цикл: от проекта до сдачи\n✅ Бесплатная консультация по телефону\n\nСаша Белый — 40 лет в спорте, знает цену качеству!',
     contact: '📞 Телефон: +7 (911) 924-54-25\n\nМогу рассчитать стоимость прямо здесь — опиши свой дом! Или звони — ответим за 2 минуты.',
     calc: '📊 Калькулятор на сайте — рассчитай сам! Или опиши параметры здесь — посчитаю. Сколько комнат, какое отопление интересует?'
 };
@@ -2774,7 +2825,7 @@ function getFallbackResponse(text) {
     if (matchKeywords(lower, keywords.calc)) return botResponses.calc;
     if (matchKeywords(lower, ['привет', 'здравствуй', 'хай', 'hello', 'йо'])) return 'Привет! 🔥 Я Василий, инженер-консультант. Помогу с отоплением, водоснабжением или канализацией. Спрашивай — отвечу! 😊';
     if (matchKeywords(lower, ['спасибо', 'thanks', 'пока', 'до свидания'])) return 'Рад помочь! 🔥 Если будут вопросы — пиши, я всегда на связи. Удачи с ремонтом! 🤝';
-    if (matchKeywords(lower, ['ппр', 'полипропилен', 'пластик', 'дешёвые трубы', 'дешево'])) return '🚫 Полипропилен — не для нас! Почему:\n\n1. Мы НЕ даём гарантию на ППР-монтаж\n2. ППР хрупкий, трескается от ударов и перепадов температур\n3. Соединения пайкой — слабое место, протечки через 3-5 лет\n4. Нет гибкости, нельзя обходить препятствия\n5. Заказчик потом платит дважды — сначала дёшево, потом переделывать\n\nМы работаем с Rehau PEX-a — гарантия 50 лет от производителя. На монтажные работы у нас гарантия 5 лет! 🔥';
+    if (matchKeywords(lower, ['ппр', 'полипропилен', 'пластик', 'дешёвые трубы', 'дешево'])) return '🚫 Полипропилен — не для нас! Почему:\n\n1. Мы НЕ даём гарантию на ППР-монтаж\n2. ППР хрупкий, трескается от ударов и перепадов температур\n3. Соединения пайкой — слабое место, протечки через 3-5 лет\n4. Нет гибкости, нельзя обходить препятствия\n5. Заказчик потом платит дважды — сначала дёшево, потом переделывать\n\nМы работаем с Rehau/Uponor PEX-a — гарантия 50 лет от производителя. На монтажные работы у нас гарантия 5 лет! 🔥';
     if (matchKeywords(lower, ['как дела', 'что нового', 'чем занимаешься'])) return 'Отлично! 🔥 Работаю, помогаю клиентам с отоплением. А у тебя как дела? Есть вопросы по дому?';
     if (matchKeywords(lower, ['кто ты', 'что ты умеешь', 'расскажи о себе'])) return 'Я Василий из "Отопление от Саши Белого". Помогаю с:\n🔥 Тёплые полы\n🔥 Радиаторы\n🔥 Котельные\n🔥 Водоснабжение\n🔥 Канализация\n\nМогу рассчитать стоимость, подобрать оборудование, объяснить как работает. Спрашивай!';
     return '🤔 Интересный вопрос! Могу помочь с отоплением, водоснабжением или канализацией. Расскажи подробнее — постараюсь ответить. Или звони: +7 (911) 924-54-25 😊';
@@ -2795,7 +2846,7 @@ setTimeout(() => {
 const articles = {
     1: { title: 'Монтаж отопления в СПб', icon: '🔥', content: '<p>Монтаж отопления в квартирах, частных домах и коттеджах Санкт-Петербурга и Ленинградской области.</p><p>Делаем проекты отопления любой сложности: газовое, электрическое, твердотопливное и комбинированное. Выполняем полный цикл работ — от расчёта и подбора оборудования до монтажа и запуска системы.</p><p>Работаем с проверенными материалами и современным оборудованием. Учитываем особенности вашего объекта, чтобы отопление было надёжным, экономичным и удобным в использовании.</p><p><strong>Ключевые слова:</strong> монтаж отопления СПб, установка отопления Санкт-Петербург, отопление в частном доме</p>' },
     2: { title: 'Как выбрать котёл', icon: '⚡', content: '<p>Газовый котёл — самый популярный вариант для частных домов. Экономичный, надёжный, автоматизированный.</p><p>Как рассчитать мощность: площадь дома × 120 Вт. Для дома 100м² — котёл 12-15 кВт, для 150м² — 18-22 кВт.</p><p>На что обратить внимание: КПД, автоматика, гарантия, сервис.</p><p><strong>Стоимость:</strong> газовые от 80 000₽, монтаж котельной от 150 000₽</p>' },
-    3: { title: 'Тёплый пол в доме', icon: '🏠', content: '<p>Преимущества: равномерный нагрев, экономия газа 20-30%, комфорт, долговечность 50+ лет.</p><p>Водяной теплый пол — оптимальное решение для загородного дома. Работа от 1500₽/м², с материалом от 2500₽/м².</p><p>Материалы: труба Rehau PEX-a (гарантия 50 лет), коллектор, утеплитель 50мм.</p>' },
+    3: { title: 'Тёплый пол в доме', icon: '🏠', content: '<p>Преимущества: равномерный нагрев, экономия газа 20-30%, комфорт, долговечность 50+ лет.</p><p>Водяной теплый пол — оптимальное решение для загородного дома. Работа от 1500₽/м², с материалом от 2500₽/м².</p><p>Материалы: труба Rehau/Uponor PEX-a (гарантия 50 лет), коллектор, утеплитель 50мм.</p>' },
     4: { title: 'Водоснабжение дома', icon: '💧', content: '<p>Коллекторная разводка — каждая точка водоразбора подключается отдельной трубой.</p><p>Преимущества: равномерное давление, легкий ремонт, нет потерь.</p><p>Стоимость: от 5000₽/точка, бойлер 65 000-85 000₽, фильтры от 12 000₽.</p>' },
     5: { title: 'Канализация', icon: '🚰', content: '<p>Центральная канализация — самый удобный вариант. Подключение от 50 000₽.</p><p>Септик — автономная система. Стоимость от 300 000₽.</p><p>Автономная станция — полная очистка стоков, от 500 000₽.</p>' },
     6: { title: 'Монтаж радиаторов', icon: '🛡️', content: '<p>Биметаллические: от 10 000₽/шт. Надёжные, устойчивы к коррозии.</p><p>Алюминиевые: от 8 000₽/шт. Лёгкие, красивые.</p><p>Дизайн-радиаторы: от 45 000₽/шт. Для ценителей эстетики.</p><p>Монтаж: 5 000-8 000₽/шт.</p>' },
@@ -2850,7 +2901,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Какая гарантия на работы?</summary>
-            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы даём 5 лет гарантии на все виды монтажных работ. Работаем с проверенными брендами: Rehau, Baxi, Viessmann, Grundfos, TECH, De Dietrich.</div>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Мы даём 5 лет гарантии на все виды монтажных работ. Работаем с проверенными брендами: Rehau, Uponor, Baxi, Buderus, Grundfos, TECH, De Dietrich, Viessmann.</div>
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Сколько времени занимает монтаж?</summary>
@@ -2862,7 +2913,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Какие материалы вы используете?</summary>
-            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Только проверенные бренды с гарантией от производителя: трубы Rehau PEX-a (гарантия 50 лет), котлы Baxi и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH.</div>
+            <div style="padding:0 24px 20px;color:#aaa;line-height:1.7;">Только проверенные бренды с гарантией от производителя: трубы Rehau/Uponor PEX-a (гарантия 50 лет), котлы Baxi, Buderus и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH.</div>
         </details>
         <details style="background:#1a1a2e;border-radius:12px;overflow:hidden;">
             <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:16px;color:#fff;">Можно ли оплатить в рассрочку?</summary>
@@ -2890,7 +2941,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "name": "Какая гарантия на работы?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Мы даём 5 лет гарантии на все виды монтажных работ. Работаем с проверенными брендами: Rehau, Baxi, Viessmann, Grundfos, TECH, De Dietrich."
+                "text": "Мы даём 5 лет гарантии на все виды монтажных работ. Работаем с проверенными брендами: Rehau, Uponor, Baxi, Buderus, Grundfos, TECH, De Dietrich, Viessmann."
             }
         },
         {
@@ -2914,7 +2965,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "name": "Какие материалы вы используете?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Только проверенные бренды: трубы Rehau PEX-a (гарантия 50 лет), котлы Baxi и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH."
+                "text": "Только проверенные бренды: трубы Rehau/Uponor PEX-a (гарантия 50 лет), котлы Baxi, Buderus и Viessmann, радиаторы биметаллические и алюминиевые, автоматика TECH."
             }
         },
         {
