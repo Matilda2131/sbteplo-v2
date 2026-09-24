@@ -508,7 +508,8 @@
 <!-- ==================== HERO ==================== -->
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
-        <video autoplay muted loop playsinline class="absolute w-full h-full object-cover" id="heroVideo" onerror="this.style.display='none'">
+        <video autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" class="absolute w-full h-full object-cover" id="heroVideo" onerror="this.style.display='none'">
+            <source src="hero-video-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 animated-gradient" id="heroFallback"></div>
@@ -2978,6 +2979,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ]
 }
+</script>
+<script>
+// Фоновое видео в героя: экономим мобильный трафик.
+(function () {
+    var v = document.getElementById('heroVideo');
+    if (!v) return;
+
+    // 1. Экономия трафика или слабая сеть — не качаем видео вообще, остаётся постер
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (conn && (conn.saveData === true || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || ''))) {
+        v.removeAttribute('autoplay');
+        v.pause();
+        return;
+    }
+
+    // 2. Пользователь просил меньше анимации — не запускаем
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.removeAttribute('autoplay');
+        v.pause();
+        return;
+    }
+
+    // 3. Если вдруг не пошло — показываем градиент-заглушку
+    v.addEventListener('error', function () { v.style.display = 'none'; });
+
+    // 4. На мобильных iOS autoplay иногда не стартует — подталкиваем
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* остаётся постер */ });
+
+    // 5. Экономим батарею: на скрытой вкладке видео на паузе
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { v.pause(); } else { v.play().catch(function () {}); }
+    });
+})();
 </script>
 </body>
 </html>
