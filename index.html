@@ -193,6 +193,8 @@
         
         /* Эффекты для hero заголовка */
         .hero-title { position: relative; display: inline-block; }
+        /* тень под текстом — чтобы заголовок читался поверх фонового видео */
+        #hero .hero-content, #hero .hero-content p, #hero .hero-content h1 { text-shadow: 0 2px 20px rgba(2,6,23,.92), 0 1px 3px rgba(2,6,23,.95); }
         .hero-title::before { content: ''; position: absolute; inset: -10px; background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(245,158,11,0.1)); filter: blur(20px); border-radius: 20px; z-index: -1; animation: heroGlow 3s ease-in-out infinite; }
         @keyframes heroGlow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); border-radius: 9999px; font-size: 0.875rem; color: #fbbf24; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; animation: badgeFloat 3s ease-in-out infinite; flex-wrap: wrap; justify-content: center; text-align: center; white-space: normal; max-width: 100%; }
@@ -512,15 +514,15 @@
             <source src="hero-video-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 animated-gradient" id="heroFallback"></div>
-        <div class="absolute inset-0 bg-dark-950/70"></div>
+        <div class="absolute inset-0 animated-gradient hidden" id="heroFallback"></div>
+        <div class="absolute inset-0 bg-dark-950/55"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-dark-950/90 via-dark-950/50 to-transparent"></div>
     </div>
     <div class="absolute inset-0">
         <div class="absolute top-20 right-20 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-20 left-20 w-72 h-72 bg-gold-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full hero-content">
         <div class="max-w-4xl mx-auto text-center">
             <div class="reveal-up hero-badge mb-8" style="transition-delay:0s">
                 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
@@ -3001,8 +3003,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 3. Если вдруг не пошло — показываем градиент-заглушку
-    v.addEventListener('error', function () { v.style.display = 'none'; });
+    // 3. Заглушка-градиент лежит поверх видео. Прячем её, как только видео готово,
+    //    и возвращаем, если видео не загрузилось.
+    var fb = document.getElementById('heroFallback');
+    var showFallback = function () { if (fb) fb.classList.remove('hidden'); };
+    var hideFallback = function () { if (fb) fb.classList.add('hidden'); };
+
+    v.addEventListener('loadeddata', hideFallback);
+    v.addEventListener('canplay', hideFallback);
+    v.addEventListener('error', showFallback);
+    v.addEventListener('stalled', showFallback);
+    // страховка: если за 4 секунды ни одного кадра — показываем градиент
+    setTimeout(function () {
+        if (!v.readyState || v.readyState < 2) showFallback();
+    }, 4000);
 
     // 4. На мобильных iOS autoplay иногда не стартует — подталкиваем
     var p = v.play();
