@@ -195,10 +195,9 @@
         .hero-title { position: relative; display: inline-block; }
         /* тень под текстом — чтобы заголовок читался поверх фонового видео */
         #hero .hero-content, #hero .hero-content p { text-shadow: 0 2px 20px rgba(2,6,23,.92), 0 1px 3px rgba(2,6,23,.95); }
-        /* золотой текст с прозрачной заливкой: обычная тень делает его грязным —
-           рисуем тень по контуру букв через drop-shadow */
-        #hero .hero-content .gold-text { text-shadow: none; }
-        #hero .hero-content .hero-name .gold-text { filter: drop-shadow(0 2px 10px rgba(2,6,23,.95)) drop-shadow(0 0 2px rgba(2,6,23,.9)); }
+        /* Подзаголовок — сплошной золотой, НЕ .gold-text:
+           градиент с background-clip:text рассыпается, когда рядом тень */
+        .hero-name-gold { color: #fbbf24; }
         .hero-title::before { content: ''; position: absolute; inset: -10px; background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(245,158,11,0.1)); filter: blur(20px); border-radius: 20px; z-index: -1; animation: heroGlow 3s ease-in-out infinite; }
         @keyframes heroGlow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
         .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); border-radius: 9999px; font-size: 0.875rem; color: #fbbf24; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; animation: badgeFloat 3s ease-in-out infinite; flex-wrap: wrap; justify-content: center; text-align: center; white-space: normal; max-width: 100%; }
@@ -537,7 +536,7 @@
                     <span class="block text-4xl md:text-8xl lg:text-9xl font-black text-white font-display leading-none">ОТОПЛЕНИЕ</span>
                 </span>
                 <span class="hero-name mt-4">
-                    <span class="block text-2xl md:text-5xl lg:text-6xl font-black gold-text">от Саши Белого</span>
+                    <span class="block text-2xl md:text-5xl lg:text-6xl font-black hero-name-gold">от Саши Белого</span>
                 </span>
             </h1>
             <p class="reveal-up text-lg md:text-xl text-dark-300 mb-12 max-w-2xl mx-auto leading-relaxed" style="transition-delay:0.2s">
