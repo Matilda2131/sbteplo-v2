@@ -195,6 +195,12 @@
         .hero-title { position: relative; display: inline-block; }
         /* тень под текстом — чтобы заголовок читался поверх фонового видео */
         #hero .hero-content, #hero .hero-content p { text-shadow: 0 2px 20px rgba(2,6,23,.92), 0 1px 3px rgba(2,6,23,.95); }
+        /* Кнопкам тень НЕ нужна: у них свой тёмный текст на золотом фоне,
+           и тройная тень превращала надпись в кашу (текст выглядел размытым) */
+        #hero .hero-content .btn-gold,
+        #hero .hero-content .btn-outline,
+        #hero .hero-content a,
+        #hero .hero-content button { text-shadow: none; }
         /* Подзаголовок — сплошной золотой, НЕ .gold-text:
            градиент с background-clip:text рассыпается, когда рядом тень */
         .hero-name-gold { color: #fbbf24; }
