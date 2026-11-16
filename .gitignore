@@ -1,1 +1,7 @@
 _img_backup/
+
+# preview builds (do not deploy)
+preview-*.html
+hero-video-opt.mp4
+hero-video-mobile-opt.mp4
+**/preview-seo.html
