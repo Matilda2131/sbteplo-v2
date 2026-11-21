@@ -177,11 +177,12 @@ gtag('config', 'G-N8MS3M4K7Y');
 <body>
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <!-- Прелоадер -->
-<div class="preloader" id="preloader">
+<div class="preloader" id="preloader" aria-hidden="true" role="presentation">
 <div class="preloader-logo">САША БЕЛЫЙ</div>
 <div class="preloader-bar"></div>
 </div>
 <!-- ==================== ЧАТ-АССИСТЕНТ "САША БЕЛЫЙ" ==================== -->
+<aside aria-label="Быстрая связь">
 <a href="tel:+79119245425" class="call-fab" id="callFab" aria-label="Позвонить">
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
 </a>
@@ -215,11 +216,12 @@ gtag('config', 'G-N8MS3M4K7Y');
 </button>
 </div>
 </div>
+</aside>
 <!-- Кастомный курсор -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <!-- Мобильное меню -->
-<div class="mobile-menu" id="mobileMenu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
 <div class="flex flex-col items-center justify-center h-full gap-8">
 <button onclick="closeMobileMenu()" aria-label="Закрыть меню" class="absolute top-6 right-6 text-white"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
 <a href="#hero" onclick="closeMobileMenu()">Главная</a>
@@ -233,7 +235,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 <a href="/contacts/" onclick="closeMobileMenu()">Контакты</a>
 <a href="tel:+79119245425" class="gold-text text-xl font-bold">+7 (911) 924-54-25</a>
 </div>
-</div>
+</nav>
 <!-- Навигация -->
 <nav class="nav-glass fixed top-0 w-full z-50" id="navbar">
 <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -260,7 +262,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 +7 (911) 924-54-25
 </a>
 </div>
-<button id="mobileMenuBtn" class="xl:hidden text-white p-2">
+<button id="mobileMenuBtn" class="xl:hidden text-white p-2" aria-label="Открыть меню">
 <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
 </button>
 </div>
@@ -574,7 +576,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Количество этажей</label>
-<select id="floorsCountCalc" class="premium-select" onchange="renderFloorsCalc()">
+<select id="floorsCountCalc" class="premium-select" aria-label="Количество этажей" onchange="renderFloorsCalc()">
 <option value="">Выберите этажность</option>
 <option value="1">1 этаж</option>
 <option value="2">2 этажа</option>
@@ -1048,47 +1050,47 @@ gtag('config', 'G-N8MS3M4K7Y');
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all">
 <h3 class="text-lg font-bold mb-2">Монтаж отопления в СПб</h3>
 <p class="text-dark-400 text-sm mb-3">Полный цикл работ: от расчёта до запуска системы. Гарантия 5 лет.</p>
-<a href="/articles/montazh-radiatorov/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/articles/montazh-radiatorov/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про радиаторы →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.05s">
 <h3 class="text-lg font-bold mb-2">Как выбрать котёл</h3>
 <p class="text-dark-400 text-sm mb-3">Газовый, электрический, твердотопливный. Расчёт мощности и сравнение.</p>
-<a href="/articles/kak-vybrat-kotel/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/articles/kak-vybrat-kotel/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про выбор котла →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.1s">
 <h3 class="text-lg font-bold mb-2">Тёплый пол в доме</h3>
 <p class="text-dark-400 text-sm mb-3">Водяной пол: преимущества, материалы, стоимость.</p>
-<a href="/services/teplyj-pol/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/services/teplyj-pol/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про тёплый пол →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.15s">
 <h3 class="text-lg font-bold mb-2">Водоснабжение дома</h3>
 <p class="text-dark-400 text-sm mb-3">Коллекторная разводка, фильтры, бойлер. От скважины до крана.</p>
-<a href="/services/vodosnabzhenie/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/services/vodosnabzhenie/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про водоснабжение →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.2s">
 <h3 class="text-lg font-bold mb-2">Канализация: септик или центральная</h3>
 <p class="text-dark-400 text-sm mb-3">Сравнение вариантов, стоимость, этапы монтажа.</p>
-<a href="/services/kanalizaciya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/services/kanalizaciya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про канализацию →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.25s">
 <h3 class="text-lg font-bold mb-2">Монтаж радиаторов</h3>
 <p class="text-dark-400 text-sm mb-3">Биметалл, алюминий, дизайн. Выбор, монтаж, гарантия.</p>
-<a href="/services/radiatory/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/services/radiatory/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про монтаж радиаторов →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.3s">
 <h3 class="text-lg font-bold mb-2">Автоматика отопления</h3>
 <p class="text-dark-400 text-sm mb-3">Экономия до 30% на отоплении. Термоголовки, контроллеры.</p>
-<a href="/articles/avtomatika-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/articles/avtomatika-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про автоматику →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.35s">
 <h3 class="text-lg font-bold mb-2">Проектирование отопления</h3>
 <p class="text-dark-400 text-sm mb-3">Зачем нужен проект, что входит, стоимость.</p>
-<a href="/articles/proektirovanie-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/articles/proektirovanie-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про проектирование →</a>
 </div>
 <div class="glass-card rounded-2xl p-6 reveal-scale hover:border-gold-500/30 transition-all" style="transition-delay:0.4s">
 <h3 class="text-lg font-bold mb-2">Ошибки при монтаже</h3>
 <p class="text-dark-400 text-sm mb-3">7 частых ошибок и как их избежать. Экономия на материалах = проблемы.</p>
-<a href="/articles/oshibki-montazha-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать →</a>
+<a href="/articles/oshibki-montazha-otopleniya/" class="text-gold-400 text-sm font-semibold hover:text-gold-300 transition-colors">Читать про ошибки монтажа →</a>
 </div>
 </div>
 </div>
@@ -1171,25 +1173,6 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 </div>
 </section>
-</main>
-<!-- ==================== ФУТЕР ==================== -->
-<footer class="bg-dark-950 border-t border-dark-800 py-12">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<div class="flex items-center justify-center gap-3 mb-6">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-<svg class="w-6 h-6 text-dark-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.24 17 7.3c.91 2.06 1 5.4.91 5.7 1.056.5 1.737 1.2 1.737 2.2 0 1.5-1.5 2.5-2.987 3.457z"/></svg>
-</div>
-<span class="text-lg font-bold text-white">Саша Белый</span>
-</div>
-<p class="text-dark-400 text-sm mb-2">Монтаж отопления, водоснабжения и канализации в Санкт-Петербурге и Ленинградской области</p>
-<p class="text-dark-500 text-xs italic mb-4">«Отопление от человека, который знает в нём толк»</p>
-<p class="text-dark-400 text-sm mb-4"><a href="/about/" style="color:#fbbf24;text-decoration:none">О компании</a> · <a href="/privacy/" style="color:#fbbf24;text-decoration:none">Политика конфиденциальности</a></p>
-<div class="gold-line max-w-xs mx-auto mb-4"></div>
-<p class="text-dark-600 text-xs">© 2026 Отопление от Саши Белого. Все права защищены.</p>
-</div>
-</footer>
-<script src="/js/app.js"></script>
-<!-- FAQ Section -->
 <section id="faq" style="max-width:900px;margin:80px auto;padding:0 24px;">
 <h2 style="text-align:center;font-size:32px;margin-bottom:40px;">Часто задаваемые вопросы</h2>
 <div style="display:flex;flex-direction:column;gap:16px;">
@@ -1219,6 +1202,26 @@ gtag('config', 'G-N8MS3M4K7Y');
 </details>
 </div>
 </section>
+</main>
+<!-- ==================== ФУТЕР ==================== -->
+<footer class="bg-dark-950 border-t border-dark-800 py-12">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<div class="flex items-center justify-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
+<svg class="w-6 h-6 text-dark-950" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.24 17 7.3c.91 2.06 1 5.4.91 5.7 1.056.5 1.737 1.2 1.737 2.2 0 1.5-1.5 2.5-2.987 3.457z"/></svg>
+</div>
+<span class="text-lg font-bold text-white">Саша Белый</span>
+</div>
+<p class="text-dark-400 text-sm mb-2" style="color:#94a3b8">Монтаж отопления, водоснабжения и канализации в Санкт-Петербурге и Ленинградской области</p>
+<p class="text-dark-500 text-xs italic mb-4" style="color:#94a3b8">«Отопление от человека, который знает в нём толк»</p>
+<p class="text-dark-400 text-sm mb-4"><a href="/about/" style="color:#fbbf24;text-decoration:none">О компании</a> · <a href="/privacy/" style="color:#fbbf24;text-decoration:none">Политика конфиденциальности</a></p>
+<div class="gold-line max-w-xs mx-auto mb-4"></div>
+<p class="text-dark-600 text-xs" style="color:#94a3b8">© 2026 Отопление от Саши Белого. Все права защищены.</p>
+</div>
+</footer>
+<script src="/js/app.js"></script>
+<!-- FAQ Section -->
+
 <!-- FAQ Schema -->
 <script type="application/ld+json">
 {
@@ -1316,7 +1319,7 @@ if (document.hidden) { v.pause(); } else { v.play().catch(function () {}); }
 });
 })();
 </script>
-<div id="cookieBar" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0f172a;border-top:1px solid #334155;padding:.75rem 1rem;display:none;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:#94a3b8">
+<div id="cookieBar" role="region" aria-label="Уведомление о cookies" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0f172a;border-top:1px solid #334155;padding:.75rem 1rem;display:none;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:#94a3b8">
 <span>Мы используем cookies для аналитики. <a href="/privacy/" style="color:#fbbf24">Подробнее</a></span>
 <button type="button" onclick="acceptCookies()" style="background:#fbbf24;color:#010313;border:0;border-radius:8px;padding:.5rem 1rem;font-weight:700;cursor:pointer">Понятно</button>
 </div>
