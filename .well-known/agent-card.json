@@ -1,0 +1,56 @@
+{
+  "name": "Отопление от Саши Белого",
+  "description": "Монтаж отопления, водоснабжения и канализации в Санкт-Петербурге и Ленинградской области. Выездная бригада, гарантия 5 лет.",
+  "url": "https://sbteplo.ru/",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Отопление от Саши Белого",
+    "url": "https://sbteplo.ru/"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "water-floor-heating",
+      "name": "Монтаж водяного тёплого пола",
+      "description": "Водяной тёплый пол на трубе Rehau/Uponor PEX-a. От 2 500 ₽/м² с материалом.",
+      "tags": ["отопление", "тёплый пол", "СПб"]
+    },
+    {
+      "id": "radiators",
+      "name": "Монтаж радиаторов",
+      "description": "Биметаллические, алюминиевые и дизайн-радиаторы. От 10 000 ₽/шт с монтажом.",
+      "tags": ["радиаторы", "отопление"]
+    },
+    {
+      "id": "boiler-room",
+      "name": "Котельная под ключ",
+      "description": "Проектирование и монтаж котельной. От 150 000 ₽.",
+      "tags": ["котельная", "котёл"]
+    },
+    {
+      "id": "water-supply",
+      "name": "Водоснабжение",
+      "description": "Коллекторная разводка от 5 000 ₽/точка, система под ключ от 80 000 ₽.",
+      "tags": ["водоснабжение"]
+    },
+    {
+      "id": "sewerage",
+      "name": "Канализация",
+      "description": "Монтаж канализации частного дома. От 60 000 ₽.",
+      "tags": ["канализация"]
+    }
+  ],
+  "contact": {
+    "telephone": "+7-911-924-54-25",
+    "telegram": "https://t.me/grundens",
+    "whatsapp": "https://wa.me/79119245425"
+  },
+  "documentation": {
+    "llms": "https://sbteplo.ru/llms.txt",
+    "markdown": "https://sbteplo.ru/index.md",
+    "sitemap": "https://sbteplo.ru/sitemap.xml"
+  }
+}
