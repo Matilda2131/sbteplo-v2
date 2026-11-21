@@ -42,3 +42,5 @@
 ## Полный список страниц
 
 Sitemap: https://sbteplo.ru/sitemap.xml
+- О компании: https://sbteplo.ru/about/
+- Политика конфиденциальности: https://sbteplo.ru/privacy/

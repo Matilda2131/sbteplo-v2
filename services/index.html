@@ -173,5 +173,34 @@
     </div>
 </section>
 </main>
+
+<footer style="margin-top:3rem;padding:2rem 1.5rem;border-top:1px solid #1e293b;text-align:center;color:#64748b;font-size:0.9rem;line-height:1.9">
+    <p style="margin:0 0 .5rem">
+        <a href="/" style="color:#fbbf24;text-decoration:none">Главная</a> ·
+        <a href="/services/" style="color:#fbbf24;text-decoration:none">Услуги</a> ·
+        <a href="/articles/" style="color:#fbbf24;text-decoration:none">Статьи</a> ·
+        <a href="/about/" style="color:#fbbf24;text-decoration:none">О компании</a> ·
+        <a href="/privacy/" style="color:#fbbf24;text-decoration:none">Политика конфиденциальности</a> ·
+        <a href="/contacts/" style="color:#fbbf24;text-decoration:none">Контакты</a>
+    </p>
+    <p style="margin:0">© 2026 Отопление от Саши Белого · +7 (911) 924-54-25 · Санкт-Петербург и Ленинградская область</p>
+</footer>
+
+
+<div id="cookieBar" style="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0f172a;border-top:1px solid #334155;padding:.75rem 1rem;display:none;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:#94a3b8">
+    <span>Мы используем cookies для аналитики. <a href="/privacy/" style="color:#fbbf24">Подробнее</a></span>
+    <button type="button" onclick="acceptCookies()" style="background:#fbbf24;color:#010313;border:0;border-radius:8px;padding:.5rem 1rem;font-weight:700;cursor:pointer">Понятно</button>
+</div>
+<script>
+(function () {
+    try { if (!localStorage.getItem('sb_cookie_ok')) { document.getElementById('cookieBar').style.display = 'flex'; } } catch (e) {}
+})();
+function acceptCookies() {
+    try { localStorage.setItem('sb_cookie_ok', '1'); } catch (e) {}
+    var b = document.getElementById('cookieBar');
+    if (b) { b.style.display = 'none'; }
+}
+</script>
+
 </body>
 </html>
