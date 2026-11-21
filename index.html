@@ -388,7 +388,7 @@
         .chat-avatar { width: 50px; height: 50px; border-radius: 16px; background: linear-gradient(135deg, #fbbf24, #f59e0b); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; }
         .chat-avatar svg { width: 28px; height: 28px; color: #010313; }
         .chat-avatar .online-dot { position: absolute; bottom: -2px; right: -2px; width: 14px; height: 14px; background: #22c55e; border-radius: 50%; border: 3px solid #0f172a; }
-        .chat-header-info h4 { color: #fbbf24; font-weight: 700; font-size: 1rem; }
+        .chat-header-info .chat-name { color: #fbbf24; font-weight: 700; font-size: 1rem; }
         .chat-header-info p { color: #64748b; font-size: 0.75rem; }
 
         .chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
@@ -459,8 +459,10 @@
     }
 }
     </script>
+    <style>.skip-link{position:absolute;left:-9999px;top:0;background:#fbbf24;color:#010313;padding:.75rem 1rem;z-index:100001;border-radius:0 0 8px 0;font-weight:700}.skip-link:focus{left:0}</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
 
 <!-- Прелоадер -->
 <div class="preloader" id="preloader">
@@ -486,7 +488,7 @@
             <div class="online-dot"></div>
         </div>
         <div class="chat-header-info">
-            <h4>Инженер Василий</h4>
+            <p class="chat-name">Инженер Василий</p>
             <p>Онлайн • Отвечает за 30 сек</p>
         </div>
     </div>
@@ -656,19 +658,19 @@
                     <div class="space-y-4">
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/30 transition-all">
                             <div>
-                                <h4 class="font-bold text-white mb-1">Коллекторная разводка</h4>
+                                <h3 class="font-bold text-white mb-1">Коллекторная разводка</h3>
                                 <p class="text-dark-400 text-sm">Каждый контур управляется отдельно. Никаких компромиссов в балансировке.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/30 transition-all">
                             <div>
-                                <h4 class="font-bold text-white mb-1">Покомнатная автоматика</h4>
+                                <h3 class="font-bold text-white mb-1">Покомнатная автоматика</h3>
                                 <p class="text-dark-400 text-sm">Термостаты и сервоприводы для точного контроля температуры в каждой комнате.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 p-4 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/30 transition-all">
                             <div>
-                                <h4 class="font-bold text-white mb-1">Гарантия 5 лет</h4>
+                                <h3 class="font-bold text-white mb-1">Гарантия 5 лет</h3>
                                 <p class="text-dark-400 text-sm">На все виды работ. Мы уверены в качестве монтажа.</p>
                             </div>
                         </div>
@@ -916,23 +918,23 @@
                 <div class="mb-8">
                     <label class="text-dark-200 font-semibold block mb-3">Что считать в смету</label>
                     <div class="flex flex-wrap gap-4">
-                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all" for="includeFloorCalc">
                             <input type="checkbox" id="includeFloorCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Тёплые полы</span>
                         </label>
-                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all" for="includeRadiatorCalc">
                             <input type="checkbox" id="includeRadiatorCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Радиаторы</span>
                         </label>
-                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all" for="includeBoilerCalc">
                             <input type="checkbox" id="includeBoilerCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Котельная</span>
                         </label>
-                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all" for="includeWaterCalc">
                             <input type="checkbox" id="includeWaterCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Водоснабжение</span>
                         </label>
-                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all">
+                        <label class="flex items-center gap-2 px-4 py-3 rounded-xl bg-dark-900/50 border border-dark-800 cursor-pointer hover:border-gold-500/30 transition-all" for="includeSewageCalc">
                             <input type="checkbox" id="includeSewageCalc" class="w-4 h-4 accent-gold-500 rounded cursor-pointer" onchange="calculateAll()">
                             <span class="text-dark-200">Канализация</span>
                         </label>
@@ -1049,7 +1051,7 @@
                     </div>
                 </div>
                 <div class="space-y-3 mb-6">
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterRecirculationCalc">
                         <input type="checkbox" id="waterRecirculationCalc" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200">Рециркуляция ГВС (горячая вода мгновенно)</span>
                     </label>
@@ -1059,31 +1061,31 @@
                     <p class="text-dark-500 text-xs mb-4">Выберите нужные фильтры для вашего объекта</p>
                 </div>
                 <div class="space-y-2 mb-8">
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterMech">
                         <input type="checkbox" id="waterFilterMech" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Механический фильтр (Big Blue 20")<br><span class="text-dark-500 text-xs">Ловит песок, ржавчину и крупный мусор из воды.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterSediment">
                         <input type="checkbox" id="waterFilterSediment" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Картриджный осадочный (5 мкм)<br><span class="text-dark-500 text-xs">Убирает мелкую взвесь и муть, которую не ловит механический фильтр.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterCarbon">
                         <input type="checkbox" id="waterFilterCarbon" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Сорбционный угольный<br><span class="text-dark-500 text-xs">Убирает запах и привкус хлорки из воды.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterOsmosis">
                         <input type="checkbox" id="waterFilterOsmosis" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Обратный осмос<br><span class="text-dark-500 text-xs">Самая глубокая очистка — вода на выходе как бутилированная. Обычно ставят под мойку на кухне.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterSoftener">
                         <input type="checkbox" id="waterFilterSoftener" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Умягчитель магнитный<br><span class="text-dark-500 text-xs">Снижает накипь в трубах, чайнике и стиральной машине.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterAutoStation">
                         <input type="checkbox" id="waterFilterAutoStation" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Автоматическая станция водоподготовки<br><span class="text-dark-500 text-xs">Все фильтры выше в одном блоке, сам промывается — не нужно вручную менять картриджи.</span></span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="waterFilterReducer">
                         <input type="checkbox" id="waterFilterReducer" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200 text-sm flex-1">Редуктор давления<br><span class="text-dark-500 text-xs">Снижает слишком сильный напор воды из городской трубы, чтобы не рвало технику и краны.</span></span>
                     </label>
@@ -1134,13 +1136,13 @@
                             <p class="text-dark-500 text-xs mt-2">Если не знаете — оставьте по умолчанию, монтажник уточнит на замере.</p>
                         </div>
                         <div>
-                            <label class="text-dark-200 font-semibold block mb-3">Повороты (шт.)</label>
+                            <label class="text-dark-200 font-semibold block mb-3" for="sewageTurnsCalc">Повороты (шт.)</label>
                             <input type="number" id="sewageTurnsCalc" value="4" min="0" max="30" class="premium-input" onfocus="this.select()">
                             <p class="text-dark-500 text-xs mt-2">Сколько раз труба меняет направление на пути от дома до колодца/септика. Если не уверены — оставьте 4, это средний вариант.</p>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <label class="text-dark-200 font-semibold block mb-3">Длина труб (м.п.) <span class="text-dark-500 font-normal">— считается автоматически</span></label>
+                        <label class="text-dark-200 font-semibold block mb-3" for="sewagePipeLengthCalc">Длина труб (м.п.) <span class="text-dark-500 font-normal">— считается автоматически</span></label>
                         <input type="number" id="sewagePipeLengthCalc" value="0" min="0" max="500" class="premium-input" readonly>
                     </div>
                 </div>
@@ -1200,15 +1202,15 @@
                 </div>
 
                 <div class="space-y-3 mb-6">
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="sewageGreaseTrapCalc">
                         <input type="checkbox" id="sewageGreaseTrapCalc" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200">Жироуловитель (для кухни)</span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="sewageBackwaterCalc">
                         <input type="checkbox" id="sewageBackwaterCalc" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200">Обратный клапан ⌀110</span>
                     </label>
-                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer">
+                    <label class="flex items-center gap-4 p-3 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer" for="sewageAeratorCalc">
                         <input type="checkbox" id="sewageAeratorCalc" class="w-4 h-4 accent-gold-500 rounded">
                         <span class="text-dark-200">Аэратор для септика</span>
                     </label>
