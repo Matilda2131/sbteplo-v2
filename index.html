@@ -223,6 +223,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 </nav>
 <!-- Навигация -->
+<header>
 <nav class="nav-glass fixed top-0 w-full z-50" id="navbar">
 <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 <a href="#hero" class="flex items-center gap-3 group">
@@ -253,6 +254,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </button>
 </div>
 </nav>
+</header>
 <main id="main">
 <!-- ==================== HERO ==================== -->
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
@@ -624,7 +626,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 <div id="advancedOptionsCalc" class="grid md:grid-cols-3 gap-6 mb-8 hidden">
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Способ укладки тёплого пола</label>
-<select id="floorInstallMethodCalc" class="premium-select">
+<select id="floorInstallMethodCalc" class="premium-select" aria-label="Способ укладки тёплого пола">
 <option value="anchors">На пенополистирол + скобы</option>
 <option value="mats">На профильные маты</option>
 <option value="mesh">На монтажную сетку</option>
@@ -633,7 +635,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Шаг укладки трубы</label>
-<select id="floorPipeStepCalc" class="premium-select">
+<select id="floorPipeStepCalc" class="premium-select" aria-label="Шаг укладки трубы">
 <option value="10">10 см (усиленный)</option>
 <option value="15">15 см (стандарт)</option>
 <option value="20">20 см (эконом)</option>
@@ -642,14 +644,14 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Покомнатная автоматика</label>
-<select id="floorAutomationCalc" class="premium-select">
+<select id="floorAutomationCalc" class="premium-select" aria-label="Покомнатная автоматика">
 <option value="no">Нет</option>
 <option value="yes">Да (термостаты + сервоприводы)</option>
 </select>
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Тип топлива котла</label>
-<select id="boilerFuelTypeCalc" class="premium-select">
+<select id="boilerFuelTypeCalc" class="premium-select" aria-label="Тип топлива котла">
 <option value="gas">Газ</option>
 <option value="diesel">Дизель</option>
 <option value="electric">Электричество</option>
@@ -658,7 +660,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Кол-во контуров котельной</label>
-<select id="boilerContoursCalc" class="premium-select">
+<select id="boilerContoursCalc" class="premium-select" aria-label="Кол-во контуров котельной">
 <option value="1">1 контур (отопление)</option>
 <option value="2">2 контура (отопление + ГВС)</option>
 <option value="3">3 контура (+ тёплые полы)</option>
@@ -666,7 +668,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Тип радиатора</label>
-<select id="radTypeCalc" class="premium-select">
+<select id="radTypeCalc" class="premium-select" aria-label="Тип радиатора">
 <option value="bimetal">Биметаллический</option>
 <option value="aluminum">Алюминиевый</option>
 <option value="steel">Стальной панельный</option>
@@ -675,7 +677,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Высота потолков</label>
-<select id="radHeightCalc" class="premium-select">
+<select id="radHeightCalc" class="premium-select" aria-label="Высота потолков">
 <option value="2.5">2.5 м (стандарт)</option>
 <option value="2.7">2.7 м</option>
 <option value="3.0">3.0 м</option>
@@ -684,7 +686,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Подводка радиаторов</label>
-<select id="radConnectionTypeCalc" class="premium-select">
+<select id="radConnectionTypeCalc" class="premium-select" aria-label="Подводка радиаторов">
 <option value="floor">Из пола</option>
 <option value="wall">Из стены (штробление)</option>
 </select>
@@ -709,7 +711,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Наличие кухни</label>
-<select id="waterKitchenCalc" class="premium-select">
+<select id="waterKitchenCalc" class="premium-select" aria-label="Наличие кухни">
 <option value="yes">Да</option>
 <option value="no">Нет</option>
 </select>
@@ -790,7 +792,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 <div class="grid md:grid-cols-3 gap-4">
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Система</label>
-<select id="sewageTypeCalc" class="premium-select">
+<select id="sewageTypeCalc" class="premium-select" aria-label="Система">
 <option value="central">Центральная канализация</option>
 <option value="septic">Септик</option>
 <option value="autonomous">Автономная станция (АС)</option>
@@ -799,7 +801,7 @@ gtag('config', 'G-N8MS3M4K7Y');
 </div>
 <div>
 <label class="text-dark-200 font-semibold block mb-3">Глубина прокладки (м)</label>
-<select id="sewageDepthCalc" class="premium-select">
+<select id="sewageDepthCalc" class="premium-select" aria-label="Глубина прокладки (м)">
 <option value="0.5">0.5 м (внутри дома)</option>
 <option value="1.0">1.0 м (заглубление)</option>
 <option value="1.5">1.5 м (ниже промерзания)</option>
@@ -823,23 +825,23 @@ gtag('config', 'G-N8MS3M4K7Y');
 <p class="text-dark-500 text-xs mb-4">Выберите ваши помещения — таблица обновится автоматически</p>
 <div class="flex flex-wrap gap-3 mb-5" id="roomSelector">
 <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer has-[:checked]:border-gold-500/50 has-[:checked]:bg-gold-500/10">
-<input type="checkbox" checked data-room="main_bath" class="room-toggle accent-gold-500 rounded">
+<input type="checkbox" checked data-room="main_bath" aria-label="Главный санузел: учесть в смете" class="room-toggle accent-gold-500 rounded">
 <span>Главный санузел</span>
 </label>
 <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer has-[:checked]:border-gold-500/50 has-[:checked]:bg-gold-500/10">
-<input type="checkbox" data-room="guest_bath" class="room-toggle accent-gold-500 rounded">
+<input type="checkbox" data-room="guest_bath" aria-label="Гостевой санузел: учесть в смете" class="room-toggle accent-gold-500 rounded">
 <span>Гостевой санузел</span>
 </label>
 <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer has-[:checked]:border-gold-500/50 has-[:checked]:bg-gold-500/10">
-<input type="checkbox" data-room="bed_bath" class="room-toggle accent-gold-500 rounded">
+<input type="checkbox" data-room="bed_bath" aria-label="Санузел в спальне: учесть в смете" class="room-toggle accent-gold-500 rounded">
 <span>Санузел в спальне</span>
 </label>
 <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer has-[:checked]:border-gold-500/50 has-[:checked]:bg-gold-500/10">
-<input type="checkbox" checked data-room="kitchen" class="room-toggle accent-gold-500 rounded">
+<input type="checkbox" checked data-room="kitchen" aria-label="Кухня: учесть в смете" class="room-toggle accent-gold-500 rounded">
 <span>Кухня</span>
 </label>
 <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-gold-500/20 transition-all cursor-pointer has-[:checked]:border-gold-500/50 has-[:checked]:bg-gold-500/10">
-<input type="checkbox" checked data-room="laundry" class="room-toggle accent-gold-500 rounded">
+<input type="checkbox" checked data-room="laundry" aria-label="Прачечная: учесть в смете" class="room-toggle accent-gold-500 rounded">
 <span>Постирочная</span>
 </label>
 </div>
