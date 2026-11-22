@@ -164,7 +164,36 @@ gtag('config', 'G-N8MS3M4K7Y');
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <!-- Прелоадер -->
 <div class="preloader" id="preloader" aria-hidden="true" role="presentation">
-<div class="preloader-logo">САША БЕЛЫЙ</div>
+<svg class="preloader-liquid" width="0" height="0" aria-hidden="true" style="position:absolute">
+<defs>
+<filter id="liquid-gold" x="-30%" y="-30%" width="160%" height="160%">
+<feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="2" seed="7" result="noise">
+<animate attributeName="baseFrequency" dur="7s" values="0.012 0.028;0.02 0.018;0.012 0.028" repeatCount="indefinite"/>
+</feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G" result="warp"/>
+<feGaussianBlur in="warp" stdDeviation="0.4" result="soft"/>
+<feSpecularLighting in="soft" surfaceScale="3" specularConstant="0.9" specularExponent="22" lighting-color="#fff6cf" result="spec">
+<fePointLight x="180" y="60" z="140">
+<animate attributeName="x" dur="5s" values="60;320;60" repeatCount="indefinite"/>
+<animate attributeName="y" dur="6s" values="40;160;40" repeatCount="indefinite"/>
+</fePointLight>
+</feSpecularLighting>
+<feComposite in="spec" in2="soft" operator="in" result="specClip"/>
+<feComposite in="soft" in2="specClip" operator="arithmetic" k1="0" k2="1" k3="0.85" k4="0"/>
+</filter>
+<linearGradient id="pre-gold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#6b4a06"/>
+<stop offset="28%" stop-color="#fbbf24"/>
+<stop offset="45%" stop-color="#fff3c4"/>
+<stop offset="58%" stop-color="#f59e0b"/>
+<stop offset="75%" stop-color="#b45309"/>
+<stop offset="100%" stop-color="#fcd34d"/>
+<animateTransform attributeName="gradientTransform" type="translate" dur="4s" values="-1 -1;1 1;-1 -1" repeatCount="indefinite"/>
+</linearGradient>
+</defs>
+</svg>
+<div class="preloader-emblem"><span class="preloader-liquid-text">САША</span><span class="preloader-liquid-text preloader-liquid-sub">БЕЛЫЙ</span></div>
+<div class="preloader-tagline">МОНТАЖ ОТОПЛЕНИЯ В САНКТ-ПЕТЕРБУРГЕ</div>
 <div class="preloader-bar"></div>
 </div>
 <!-- ==================== ЧАТ-АССИСТЕНТ "САША БЕЛЫЙ" ==================== -->
