@@ -301,7 +301,7 @@
     filter: drop-shadow(0 4px 18px rgba(245,158,11,0.35)) drop-shadow(0 0 42px rgba(251,191,36,0.18));
 }
 .preloader-line-sub {
-    font-size: 0.82em;
+    font-size: clamp(2.1rem, 7.8vw, 6.2rem);
     letter-spacing: 0.18em;
     animation-delay: 0.12s, 0.12s;
     filter: drop-shadow(0 4px 14px rgba(245,158,11,0.3));
