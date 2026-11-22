@@ -12,8 +12,6 @@
         .preloader { position: fixed; inset: 0; background: #010313; z-index: 100000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.8s, visibility 0.8s; }
         .preloader.hidden { opacity: 0; visibility: hidden; }
         .preloader-logo { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse-gold 1.5s infinite; }
-        .preloader-bar { width: 200px; height: 2px; background: #1e293b; margin-top: 2rem; border-radius: 2px; overflow: hidden; }
-        .preloader-bar::after { content: ''; display: block; width: 0; height: 100%; background: linear-gradient(90deg, #fbbf24, #f59e0b); animation: load-bar 2s ease forwards; }
         @keyframes load-bar { to { width: 100%; } }
         @keyframes pulse-gold { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
