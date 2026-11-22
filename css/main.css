@@ -307,12 +307,13 @@
     filter: drop-shadow(0 4px 14px rgba(245,158,11,0.3));
 }
 .preloader-tagline {
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.34em;
-    color: #b9a89a;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    color: #e7c98a;
+    text-shadow: 0 0 22px rgba(251,191,36,0.22);
     text-align: center;
     animation: gold-rise 1s 0.22s cubic-bezier(.2,.8,.2,1) both;
 }
